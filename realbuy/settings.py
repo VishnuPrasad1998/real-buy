@@ -120,6 +120,6 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIR = [
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'realbuy/static')
 ]
