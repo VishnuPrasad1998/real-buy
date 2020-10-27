@@ -94,6 +94,7 @@ html {
 }
 
 .Logo { 
+    top: 0px;
     grid-area: Logo;
     position: absolute; }
 
