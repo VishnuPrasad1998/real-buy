@@ -31,7 +31,7 @@ class Listing(models.Model):
     carpet_area = models.FloatField(blank=False)
     unit = models.CharField(max_length=50, choices=UNIT_CHOICES)
     transaction_type = models.CharField(max_length=50, choices=TRANSACTION_CHOICES)
-    property_floor = models.CharField(max_length=200, choices=PTFLOOR_CHOICES)
+    property_floor = models.IntegerField(choices=PTFLOOR_CHOICES)
     ownership = models.CharField(max_length=200, choices=OWNERSHIP_CHOICES)
     total_floors = models.IntegerField(choices=TOTALFLOOR_CHOICES)
     availability = models.CharField(max_length=200, choices=AVAILABILITY_CHOICES)
