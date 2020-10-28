@@ -4,8 +4,11 @@ from django.core.paginator import EmptyPage, Paginator, PageNotAnInteger
 # Create your views here.
 def index(request):
     listings = Listing.objects.raw('SELECT * FROM listings_listing')
+    paginator = Paginator(listings, 3)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
     context = {
-      'listings':  listings
+      'listings':  paged_listings
     }
     return render(request, 'listings/listings.html', context)
 
