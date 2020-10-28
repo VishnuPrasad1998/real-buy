@@ -48,93 +48,24 @@
     <h3 id="aboutheading"><span style="color: #ffffff;">Featured </span>Properties</h3>
     <!-- Cards -->
     <div class="row">
+      {% if featured_listings %}
+      {% for listing in featured_listings %}
         <div class="col-sm-4">
             <div class="card" style="width: 14rem; height: 16rem;">
-                <img class="card-img-top" src="{% static 'img/Bitmap1.png' %}" alt="Card image cap" width="100px" height="100px">
+                <img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px">
                 <div class="card-body">
                   <p class="card-text">
-                  <small>Puravankara</small><br />
-                  <strong style="color: #2fb56e;">₹ 28,235</strong><br/>
-                  <img src="{% static 'img/Bed_small.svg' %}">&nbsp;&nbsp;&nbsp;Bed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<br />
-                  <img src="{% static 'img/bath_small.svg' %}">&nbsp;&nbsp;&nbsp;Bathroom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<br />
-                  <img src="{% static 'img/map_small.svg' %}">&nbsp;&nbsp;&nbsp;Marinedrive, Kochi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
+                  <small>{{listing.title}}</small><br />
+                  <strong style="color: #2fb56e;">₹{{listing.price}}</strong><br/>
+                  <img src="{% static 'img/Bed_small.svg' %}">&nbsp;&nbsp;&nbsp;Bed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{listing.bedrooms}}<br />
+                  <img src="{% static 'img/bath_small.svg' %}">&nbsp;&nbsp;&nbsp;Bathroom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{listing.bathrooms}}<br />
+                  <img src="{% static 'img/map_small.svg' %}">&nbsp;&nbsp;&nbsp;{{listing.city}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
                   </p>
                 </div>
               </div>
         </div>
-        <div class="col-sm-4">
-            <div class="card" style="width: 14rem; height: 16rem;">
-                <img class="card-img-top" src="{% static 'img/Bitmap2.png' %}" alt="Card image cap" width="100px" height="100px">
-                <div class="card-body">
-                  <p class="card-text">
-                  <small>Puravankara</small><br />
-                  <strong style="color: #2fb56e;">₹ 28,235</strong><br/>
-                  <img src="{% static 'img/Bed_small.svg' %}">&nbsp;&nbsp;&nbsp;Bed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<br />
-                  <img src="{% static 'img/bath_small.svg' %}">&nbsp;&nbsp;&nbsp;Bathroom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<br />
-                  <img src="{% static 'img/map_small.svg' %}">&nbsp;&nbsp;&nbsp;Marinedrive, Kochi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
-                  </p>
-                </div>
-              </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card" style="width: 14rem; height: 16rem;">
-                <img class="card-img-top" src="{% static 'img/Bitmap3.png' %}" alt="Card image cap" width="100px" height="100px">
-                <div class="card-body">
-                  <p class="card-text">
-                  <small>Puravankara</small><br />
-                  <strong style="color: #2fb56e;">₹ 28,235</strong><br/>
-                  <img src="{% static 'img/Bed_small.svg' %}">&nbsp;&nbsp;&nbsp;Bed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<br />
-                  <img src="{% static 'img/bath_small.svg' %}">&nbsp;&nbsp;&nbsp;Bathroom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<br />
-                  <img src="{% static 'img/map_small.svg' %}">&nbsp;&nbsp;&nbsp;Marinedrive, Kochi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
-                  </p>
-                </div>
-              </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-4">
-            <div class="card" style="width: 14rem; height: 16rem;">
-                <img class="card-img-top" src="{% static 'img/Bitmap4.png' %}" alt="Card image cap" width="100px" height="100px">
-                <div class="card-body">
-                  <p class="card-text">
-                  <small>Puravankara</small><br />
-                  <strong style="color: #2fb56e;">₹ 28,235</strong><br/>
-                  <img src="{% static 'img/Bed_small.svg' %}">&nbsp;&nbsp;&nbsp;Bed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<br />
-                  <img src="{% static 'img/bath_small.svg' %}">&nbsp;&nbsp;&nbsp;Bathroom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<br />
-                  <img src="{% static 'img/map_small.svg' %}">&nbsp;&nbsp;&nbsp;Marinedrive, Kochi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
-                  </p>
-                </div>
-              </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card" style="width: 14rem; height: 16rem;">
-                <img class="card-img-top" src="{% static 'img/Bitmap5.png' %}" alt="Card image cap" width="100px" height="100px">
-                <div class="card-body">
-                  <p class="card-text">
-                  <small>Puravankara</small><br />
-                  <strong style="color: #2fb56e;">₹ 28,235</strong><br/>
-                  <img src="{% static 'img/Bed_small.svg' %}">&nbsp;&nbsp;&nbsp;Bed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<br />
-                  <img src="{% static 'img/bath_small.svg' %}">&nbsp;&nbsp;&nbsp;Bathroom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<br />
-                  <img src="{% static 'img/map_small.svg' %}">&nbsp;&nbsp;&nbsp;Marinedrive, Kochi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
-                  </p>
-                </div>
-              </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card" style="width: 14rem; height: 16rem;">
-                <img class="card-img-top" src="{% static 'img/Bitmap6.png' %}" alt="Card image cap" width="100px" height="100px">
-                <div class="card-body">
-                  <p class="card-text">
-                  <small>Puravankara</small><br />
-                  <strong style="color: #2fb56e;">₹ 28,235</strong><br/>
-                  <img src="{% static 'img/Bed_small.svg' %}">&nbsp;&nbsp;&nbsp;Bed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2<br />
-                  <img src="{% static 'img/bath_small.svg' %}">&nbsp;&nbsp;&nbsp;Bathroom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3<br />
-                  <img src="{% static 'img/map_small.svg' %}">&nbsp;&nbsp;&nbsp;Marinedrive, Kochi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
-                  </p>
-                </div>
-              </div>
-        </div>
+        {% endfor %}
+        {% endif %}
       </div>
     </div>
     <!-- Recent Properties -->
@@ -142,70 +73,21 @@
     <h3 id="aboutheading"><span style="color: #ffffff;">Recent </span>Properties</h3>
         <!-- Cards -->
         <div class="row">
+          {% if recent_listings %}
+          {% for listing in recent_listings %}
             <div class="col-sm-4">
                 <div class="card" style="width: 14rem; height: 14rem;">
-                    <img class="card-img-top" src="{% static 'img/Bitmap1.png' %}" alt="Card image cap" width="100px" height="100px">
+                    <img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px">
                     <div class="card-body">
-                    <Strong>SMALLSYS INC</Strong><br />
-                    <small>795 E DRAGRAM, USA</small><br />
-                    <span style="color: #2fb56e;">₹ 28,235</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
+                    <Strong>{{listing.title}}</Strong><br />
+                    <small>{{listing.location}}, {{listing.city}}</small><br />
+                    <span style="color: #2fb56e;">₹ {{listing.price}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{% static 'img/favorites.svg' %}">
                     </div>
                 </div>
             </div>
-            <div class="col-sm-4">
-                <div class="card" style="width: 14rem; height: 14rem;">
-                    <img class="card-img-top" src="{% static 'img/Bitmap2.png' %}" alt="Card image cap" width="100px" height="100px">
-                    <div class="card-body">
-                    <Strong>SMALLSYS INC</Strong><br />
-                    <small>795 E DRAGRAM, USA</small><br />
-                    <span style="color: #2fb56e;">₹ 28,235</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card" style="width: 14rem; height: 14rem;">
-                    <img class="card-img-top" src="{% static 'img/Bitmap3.png' %}" alt="Card image cap" width="100px" height="100px">
-                    <div class="card-body">
-                    <Strong>SMALLSYS INC</Strong><br />
-                    <small>795 E DRAGRAM, USA</small><br />
-                    <span style="color: #2fb56e;">₹ 28,235</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+            {% endif %}
         </div>
-
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="card" style="width: 14rem; height: 14rem;">
-                    <img class="card-img-top" src="{% static 'img/Bitmap4.png' %}" alt="Card image cap" width="100px" height="100px">
-                    <div class="card-body">
-                    <Strong>SMALLSYS INC</Strong><br />
-                    <small>795 E DRAGRAM, USA</small><br />
-                    <span style="color: #2fb56e;">₹ 28,235</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
-                    </div>
-                </div>
-            </div>
-           <div class="col-sm-4">
-                <div class="card" style="width: 14rem; height: 14rem;">
-                    <img class="card-img-top" src="{% static 'img/Bitmap5.png' %}" alt="Card image cap" width="100px" height="100px">
-                    <div class="card-body">
-                    <Strong>SMALLSYS INC</Strong><br />
-                    <small>795 E DRAGRAM, USA</small><br />
-                    <span style="color: #2fb56e;">₹ 28,235</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="card" style="width: 14rem; height: 14rem;">
-                    <img class="card-img-top" src="{% static 'img/Bitmap6.png' %}" alt="Card image cap" width="100px" height="100px">
-                    <div class="card-body">
-                    <Strong>SMALLSYS INC</Strong><br />
-                    <small>795 E DRAGRAM, USA</small><br />
-                    <span style="color: #2fb56e;">₹ 28,235</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
-                    </div>
-                </div>
-            </div>
-      </div>
     </div>
 </div>
 
