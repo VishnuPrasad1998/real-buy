@@ -8,14 +8,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 <title>Real Buy</title>
 </head>
-<style>
-  .pagination {
-  display: flex;
-  padding-left: 0;
-  list-style: none;
-  border-radius: 0.25rem; }
-
-</style>
 <body style="background-color: black;">
     <div id="featuredproops">
         <h3 id="aboutheading"><span style="color: #ffffff;">All </span>Properties</h3>
@@ -29,7 +21,7 @@
                     <div class="card-body">
                       <p class="card-text">
                       <small>{{listing.title}}</small><br />
-                      <strong style="color: #2fb56e;">{{listing.price}}</strong><br/>
+                      <strong style="color: #2fb56e;">₹{{listing.price}}</strong><br/>
                       <img src="{% static 'img/Bed_small.svg' %}">&nbsp;&nbsp;&nbsp;Bed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{listing.bedrooms}}<br />
                       <img src="{% static 'img/bath_small.svg' %}">&nbsp;&nbsp;&nbsp;Bathroom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{listing.bathrooms}}<br />
                       <img src="{% static 'img/map_small.svg' %}">&nbsp;&nbsp;&nbsp;{{listing.location}}, {{listing.city}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
