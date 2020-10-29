@@ -3,5 +3,6 @@
 *.pyc
 __pycache__/
 local_settings.py
+/sta
 db.sqlite3
 db.sqlite3-journal
