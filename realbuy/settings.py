@@ -82,15 +82,13 @@ WSGI_APPLICATION = 'realbuy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'realbuydb',
-        'USER': 'vishnu',
-        'PASSWORD': 'abcd1234',
-        'HOST': 'localhost'
+        'NAME': 'de0jofqrrqct0v',
+        'HOST': 'ec2-54-196-89-124.compute-1.amazonaws.com',
+        'PORT': 5432,
+        'USER': 'duolantsqqxitt',
+        'PASSWORD': '491957342af4ca989c22d036379ee173c812084186afadf31767cf06a45b8647',
     }
 }
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
-
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
