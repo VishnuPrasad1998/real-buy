@@ -6,6 +6,7 @@ Unipath
 python-decouple
 Pillow
 Markdown
+django-heroku
 bleach
 psycopg2
 whitenoise

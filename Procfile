@@ -1,1 +1,1 @@
-web: gunicorn realbuy.wsgi --log-file -
+web: gunicorn --pythonpath realbuy realbuy.wsgi
