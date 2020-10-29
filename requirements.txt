@@ -1,0 +1,12 @@
+Django
+dj-database-url
+dj-static
+gunicorn
+Unipath
+python-decouple
+Pillow
+Markdown
+bleach
+psycopg2
+whitenoise
+djangorestframework
