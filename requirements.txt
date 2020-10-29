@@ -11,3 +11,4 @@ bleach
 psycopg2
 whitenoise
 djangorestframework
+psycopg2-binary
