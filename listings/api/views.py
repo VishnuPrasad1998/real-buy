@@ -1,14 +1,15 @@
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
+from django.http import Http404
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 from listings.models import Listing
 from listings.api.serializers import ListingSerializer
 
-def index(request):
+class PropertyListing(APIView):
     """
-    List all code snippets, or create a new snippet.
+    List all snippets, or create a new snippet.
     """
-    if request.method == 'GET':
+    def get(self, request, format=None):
         snippets = Listing.objects.all()
         serializer = ListingSerializer(snippets, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return Response(serializer.data)
