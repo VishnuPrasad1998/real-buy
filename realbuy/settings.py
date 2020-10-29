@@ -25,7 +25,7 @@ SECRET_KEY = 'hyiq$7ysk#+5#h45(ixwe1(tu@$*3ye#5c4@4h=gwb##3%&3y('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['realbuy-demo.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
