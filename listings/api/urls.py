@@ -4,5 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.PropertyListing.as_view()),
+    path('/<int:pk>', views.ListingDetails.as_view())
 ]
+
 urlpatterns = format_suffix_patterns(urlpatterns)
