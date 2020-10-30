@@ -12,7 +12,9 @@ def index(request):
     }
     return render(request, 'listings/listings.html', context)
 
-def listing(request):
-    return render(request, 'listings/listing.html')
+def listing(request, listing_id):
+    listing = Listing.objects.raw('SELECT * FROM listings_listing WHERE id = %d' % listing_id)
+    return render(request, 'listings/listing.html', {'listing': listing})
+    
 def search(request):
     return render(request, 'listings/search.html')
