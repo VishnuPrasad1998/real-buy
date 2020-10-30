@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-import dropbox
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -43,7 +42,6 @@ INSTALLED_APPS = [
     'listings',
     'realtors',
     'rest_framework',
-    'storages',
 ]
 
 MIDDLEWARE = [
@@ -135,11 +133,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'realbuy/static')
 ]
-
-DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
-DROPBOX_OAUTH2_TOKEN = 'MPCDMADfSw4AAAAAAAAAAfgpMs5I5PnKq79IaY4IwklCK1tZTb73rhahARH-vfMx'
-dbx = dropbox.Dropbox('MPCDMADfSw4AAAAAAAAAAfgpMs5I5PnKq79IaY4IwklCK1tZTb73rhahARH-vfMx')
-DROPBOX_ROOT_PATH = 'media'
 
 #Media Files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

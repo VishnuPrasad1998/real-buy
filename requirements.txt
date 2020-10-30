@@ -12,4 +12,3 @@ psycopg2
 whitenoise
 djangorestframework
 psycopg2-binary
-django-storages[dropbox]
