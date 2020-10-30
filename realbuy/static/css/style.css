@@ -4,7 +4,7 @@
 }
 body{
 	color: white;
-        font-family: Antipasto;
+    font-family: Antipasto;
     }
 .grid-container {
   display: grid;
@@ -28,9 +28,9 @@ html {
 #contentmain {
     background: url(../img/Bg.png);
     background-size: cover;
-    position: absolute;
-    height: 710px;
-    width: 1529px;
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 .About {
   display: flex;
