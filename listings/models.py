@@ -24,7 +24,7 @@ class Listing(models.Model):
     address = models.CharField(max_length=200, blank=False)
     location = models.CharField(max_length=200, blank=False)
     address = models.CharField(max_length=200, blank=False)
-    price = models.CharField(max_length=100, choices=PRICE_CHOICES)
+    price = models.FloatField()
     bedrooms = models.IntegerField(choices=BEDROOM_CHOICES)
     bathrooms = models.IntegerField(choices=BATHROOM_CHOICES)
     built_up_area = models.FloatField(blank=False)

@@ -1,4 +1,90 @@
-{% extends 'base.html' %}
-{% block content %}
-Search
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<title>Real Buy</title>
+</head>
+<body style="background-color: black;">
+    <section id="showcase-inner" class="showcase-search text-white py-5">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-12">
+                <H2 style="text-align: left;">FILTER LISTING</H2>
+                <br />
+              <form action="{% url 'search' %}">
+                <!-- Form Row 1 -->
+                <div class="form-row">
+                    <div class="col-md-2 mb-3">
+                        <label class="sr-only">City</label>
+                        <input type="text" name="city" class="form-control" placeholder="City..." value="{{ values.city }}">
+                      </div>
+                      <div class="col-md-2 mb-3">
+                        <select name="price" class="form-control">
+                          <option selected="true" disabled="disabled">Max Price (All)</option>
+                          {% for key,value in price_choices.items %}
+                              <option value="{{ key }}"
+                              {% if key == values.price %}
+                                selected
+                              {% endif %}
+                              >{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                      <div class="col-md-2 mb-3">
+                        <label class="sr-only">Bedrooms</label>
+                        <select name="bedrooms" class="form-control">
+                          <option selected="true" disabled="disabled">Bedrooms (Any)</option>
+                          {% for key,value in bedroom_choices.items %}
+                              <option value="{{ key }}"
+                              {% if key == values.bedrooms %}
+                                selected
+                              {% endif %}
+                              >{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                <button class="btn btn-secondary btn-block mt-2" type="submit">Search</button>
+    
+                
+                    
+                  
+                
+                </div>
+                
+                
+              </form>
+            </div>
+          </div>
+        </div>
+      </section> 
+      <div id="featuredproops">
+        <h3 id="aboutheading"><span style="color: #ffffff;">Filtered </span>Properties</h3>
+        <!-- Cards -->
+        <div class="row">
+          {% if listings %}
+          {% for listing in listings %}
+            <div class="col-sm-4">
+                <div class="card" style="width: 20rem; height: 20rem;">
+                  <a href="{% url 'listing' listing.id %}">
+                    <img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px">
+                  </a>
+                    <div class="card-body">
+                      <p class="card-text">
+                      <small>{{listing.title}}</small><br />
+                      <strong style="color: #2fb56e;">₹{{listing.price}}</strong><br/>
+                      <img src="{% static 'img/Bed_small.svg' %}">&nbsp;&nbsp;&nbsp;Bed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{listing.bedrooms}}<br />
+                      <img src="{% static 'img/bath_small.svg' %}">&nbsp;&nbsp;&nbsp;Bathroom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{listing.bathrooms}}<br />
+                      <img src="{% static 'img/map_small.svg' %}">&nbsp;&nbsp;&nbsp;{{listing.location}}, {{listing.city}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
+                      </p>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            </div>   
+</body>
+</html>
