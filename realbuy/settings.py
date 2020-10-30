@@ -137,6 +137,7 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DROPBOX_OAUTH2_TOKEN = 'sl.Aki2o9Z6dWP89_T32mN_kaPFFnJWbBuy3KgNcUADF5wgjHSHnWNLxWToRv88w_oSJp5vTiiO44OdqCnjfiU9Bfmc62_cBhWOMcLQGzMKImZu6XKDjRFm4dLShRdefykNQIJqOik'
 dbx = dropbox.Dropbox('sl.Aki2o9Z6dWP89_T32mN_kaPFFnJWbBuy3KgNcUADF5wgjHSHnWNLxWToRv88w_oSJp5vTiiO44OdqCnjfiU9Bfmc62_cBhWOMcLQGzMKImZu6XKDjRFm4dLShRdefykNQIJqOik')
 DROPBOX_ROOT_PATH = 'media'
 
