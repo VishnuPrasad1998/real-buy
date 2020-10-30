@@ -37,6 +37,21 @@ def search(request):
         if price:
             queryset_list = queryset_list.filter(price__lte=price)
 
+    if 'price' in request.GET and 'bedrooms' in request.GET:
+        price = request.GET['price']
+        bedrooms = request.GET['bedrooms']
+        queryset_list = queryset_list.filter(price__lte=price)&queryset_list.filter(bedrooms__lte=bedrooms)
+
+    if 'city' in request.GET and 'price' in request.GET:
+        city = request.GET['city']
+        price = request.GET['price']
+        queryset_list = queryset_list.filter(city__icontains=city)&queryset_list.filter(price__lte=price)
+    
+    if 'city' in request.GET and 'bedrooms' in request.GET:
+        city = request.GET['city']
+        bedrooms = request.GET['bedrooms']
+        queryset_list = queryset_list.filter(city__icontains=city)&queryset_list.filter(bedrooms__lte=bedrooms)
+
     context = {
       'bedroom_choices': bedroom_choices,
       'price_choices': price_choices,
