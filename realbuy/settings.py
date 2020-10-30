@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'listings',
     'realtors',
     'rest_framework',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -128,12 +129,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'realbuy/static')
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'realbuy/static'),)
 
 #Media Files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+
+AWS_ACCESS_KEY_ID = 'AKIAVJB47BNVETDCWWP6'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'realbuy-bucket'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

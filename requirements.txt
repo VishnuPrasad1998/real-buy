@@ -12,3 +12,6 @@ psycopg2
 whitenoise
 djangorestframework
 psycopg2-binary
+dj3-cloudinary-storage
+django-storages
+boto3
