@@ -16,6 +16,8 @@ body{
     "LHS LHS About About"
     "Footer Footer About About";
     border: none;
+  width: 100%;
+  height: auto;
 }
 html {
   scroll-behavior: smooth;
@@ -29,8 +31,8 @@ html {
     background: url(../img/Bg.png);
     background-size: cover;
     position: absolute;
-    height: 710px;
-    width: 1529px;
+    width: 100%;
+    height: auto;
 }
 .About {
   display: flex;
