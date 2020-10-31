@@ -4,6 +4,9 @@ from rest_framework.response import Response
 from rest_framework import status
 from listings.models import Listing
 from listings.api.serializers import ListingSerializer
+from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework.generics import ListAPIView
+from django_filters.rest_framework import DjangoFilterBackend
 
 class PropertyListing(APIView):
     """
@@ -48,3 +51,13 @@ class ListingDetails(APIView):
         snippet = self.get_object(pk)
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class PropertyListFilters(ListAPIView):
+    """
+    API for Searching and Filtering Properties
+    """
+    queryset = Listing.objects.all()
+    serializer_class = ListingSerializer
+    filter_backends = (DjangoFilterBackend,)
+    filterset_fields = ('city', 'price', 'bedrooms')
+    
