@@ -15,4 +15,4 @@ psycopg2-binary
 dj3-cloudinary-storage
 django-storages
 boto3
-django-filters
+django-filter==2.4.0
