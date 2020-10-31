@@ -4,7 +4,9 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.PropertyListFilters.as_view()),
+    path('', views.PropertyListing.as_view()),
+    path('/featured', views.FeaturedListings.as_view()),
+    path('/recent', views.RecentListings.as_view()),
     path('/search', views.PropertyListFilters.as_view()),
     path('/<int:pk>', views.ListingDetails.as_view()),  
 ]

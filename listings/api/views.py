@@ -5,6 +5,7 @@ from rest_framework import status
 from listings.models import Listing
 from listings.api.serializers import ListingSerializer
 from rest_framework.filters import SearchFilter, OrderingFilter
+from rest_framework import generics
 from rest_framework.generics import ListAPIView
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -52,12 +53,30 @@ class ListingDetails(APIView):
         snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
+
 class PropertyListFilters(ListAPIView):
     """
-    API for Searching and Filtering Properties
+    API for filtering
     """
     queryset = Listing.objects.all()
     serializer_class = ListingSerializer
     filter_backends = (DjangoFilterBackend,)
     filterset_fields = ('city', 'price', 'bedrooms')
     
+class FeaturedListings(APIView):
+    """
+    API for listings based on price
+    """
+    def get(self, request, format=None):
+        featured_listings = Listing.objects.raw('SELECT * FROM listings_listing ORDER BY price DESC')
+        serializer = ListingSerializer(featured_listings, many=True)
+        return Response(serializer.data)
+
+class RecentListings(APIView):
+    """
+    API for Top 6 listings based on listing time
+    """
+    def get(self, request, format=None):
+        recent_listings = Listing.objects.raw('SELECT * FROM listings_listing ORDER BY posting_date DESC LIMIT 6')
+        serializer = ListingSerializer(recent_listings, many=True)
+        return Response(serializer.data)
