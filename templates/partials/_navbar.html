@@ -14,13 +14,13 @@
               <a class="nav-link" href="{% url 'index' %}">HOME</a>
           </li>
           <li class="nav-item mr-3">
-              <a class="nav-link" href="#aboutus">ABOUT&nbsp;US</a>
+              <a class="nav-link" href="{% url 'index' %}">ABOUT&nbsp;US</a>
           </li>
           <li class="nav-item mr-3">
-              <a class="nav-link" href="#featuredprops">FEATURED&nbsp;PROPERTIES</a>
+              <a class="nav-link" href="{% url 'search' %}">FEATURED&nbsp;PROPERTIES</a>
           </li>
           <li class="nav-item mr-3">
-              <a class="nav-link" href="#recentprops">
+              <a class="nav-link" href="{% url 'index' %}">
               RECENT&nbsp;PROPERTIES</a>
           </li>
           <li class="nav-item mr-3">
@@ -30,7 +30,7 @@
               ADD&nbsp;PROPERTY</a>
           </li>
           <li class="nav-item mr-3">
-              <a class="nav-link" href="listings.html">CONTACT&nbsp;US</a>
+              <a class="nav-link" href="{% url 'contactus' %}">CONTACT&nbsp;US</a>
           </li>
           <li class="nav-item mr-3">
               <a class="nav-link" href="listings.html">Login</a>
