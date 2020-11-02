@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="About" id="abt">
+    <div class="contact">
+      <h3 id="aboutheading"><span style="color: #ffffff;">Contact </span>Us</h3><br />
+      <p style="margin-left: 20px"><img src="{% static 'img/Location_Aboutus.svg' %}" height="18px" width="18px">&nbsp;&nbsp;&nbsp;Our Location</p>
+      <img src="{% static 'img/Banner_Slider.png' %}" height="200px" width="100%" id="contact-map"><br /><br />
+
+      <div class="row">
+        <div class="col">
+          <p style="margin-left: 20px; font-size: 16px"><img src="{% static 'img/Address_Desktop.png' %}" height="18px" width="18px">&nbsp;&nbsp;&nbsp;Address </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p style="margin-left: 20px; font-size: 14px;">9A, 9th floor,<br /> Carnival Infopark,<br /> Kakkanad, Kochi - 682 030</p>
+        </div>
+        <div class="col-md-4">
+          <p style="margin-left: 20px">Phone : 0484-2415010<br />Email : support@realbuy.com</p>
+        </div>
+        <div class="col-md-4">
+          <p style="margin-left: 20px">Opening Hours: <br />Monday - Friday : 9 am To 6 pm <br />Saturday - Sunday : 9 am To 2 pm</p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col">
+          <p style="margin-left: 20px; font-size: 16px"><img src="{% static 'img/mail.png' %}" height="16px" width="16px">&nbsp;&nbsp;&nbsp;Contact our Agent</p>
+        </div>
+      </div>
+      {% if messages %}
+      {% for message in messages %}
+      <div id="mgalert" class="container">
+        <div class="alert alert-danger alert-dismissible text-center" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+            {{form.non_field_errors}}
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+      <form action="{% url 'contactus' %}" method="POST">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-sm-12">
+              <input class="form-control" type="text" placeholder="Name" name="name" required>
+              </div>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-sm-12">
+              <input class="form-control" type="text" placeholder="Email" name="email" required>
+              </div>
+            </div>
+          </div>
+
+          <br />
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-sm-12">
+              <input class="form-control" type="text" placeholder="Phone" name="phone" required>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <textarea class="form-control" rows="6" placeholder="Message" style="background-color: #161616; color: #8c8c8c; border: 2px solid #8c8c8c;" name="message"></textarea>
+        </div>
+
+        <div class="col-md-4">
+          <button type="submit" class="btn btn-success">SUBMIT</button>
+        </div>
+
+      </div>
+    </form>
+    </div>
+  </div>
+
+<div class="LHS">
+  <div class="Heading"><h2>Welcome to realbuy</h2></div>
+  <div class="Content"><p>Realbuy is a real estate firm with a vision to create luxurious living spaces that surpass the expectations of customers. Although recently launched the firm is driven with an instinct and far stretching insight that improves the real estate offerings in the city...</p></div>
+  <div class="search">
+    <div class="col-md-10">
+    <form>
+    <div class="input-group mb-3">
+        
+        <input type="text" class="form-control" placeholder="Type Location/Keyword" aria-label="Recipient's username" aria-describedby="basic-addon2" style="background-color: white;">
+        <div class="input-group-append">
+          <button class="btn btn-success" type="button">Search</button>
+        </div>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

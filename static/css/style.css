@@ -170,4 +170,28 @@ html {
     margin-bottom: 15px;
     padding: 10px 10px;
 }
+.contact {
+    background-color: #161616;
+    height: inherit;
+    margin: 5px 5px;
+  }
+  #contact-map {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+  input[type=text] {
+    border: 2px solid #8c8c8c;
+    background-color: #161616;
+    color: #8c8c8c;
+  }
+  input[type=text]:focus {
+    border: 2px solid #8c8c8c;
+    background-color: #161616;
+    color: #8c8c8c;
+  }
+  textarea {
+    border: 2px solid #8c8c8c;
+    background-color: #161616;
+    color: #8c8c8c;
+  }
 
