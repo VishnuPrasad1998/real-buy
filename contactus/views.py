@@ -13,9 +13,8 @@ def contactus(request):
             phone=request.POST['phone'], message=request.POST['message'])
             new_contact.save()
             messages.success(request, 'We will contact u soon... :)')
-            return redirect('index')
+            return redirect('contactus')
         else:
-            print(form.errors)
             messages.error(request, form.errors)
     else:
         form = ContactForm()
