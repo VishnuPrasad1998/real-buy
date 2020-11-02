@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     #URL Patterns for rest api's
     path('api/listings', include('listings.api.urls')),
-
+    path('api/contactus', include('contactus.api.urls')),
 
 
     path('', include('pages.urls')),
