@@ -5,7 +5,7 @@
     <div class="contact">
       <h3 id="aboutheading"><span style="color: #ffffff;">Contact </span>Us</h3><br />
       <p style="margin-left: 20px"><img src="{% static 'img/Location_Aboutus.svg' %}" height="18px" width="18px">&nbsp;&nbsp;&nbsp;Our Location</p>
-      <img src="{% static 'img/Banner_Slider.png' %}" height="200px" width="100%" id="contact-map"><br /><br />
+      <img src="{% static 'img/Banner_Slider.png' %}" height="200px" width="100%" id="contact-map" alt="Map marking cochin to be loaded"><br /><br />
 
       <div class="row">
         <div class="col">
@@ -39,7 +39,7 @@
             </div>
           </div>
         {% else %}
-        <div id="mgalert" class="container">
+        <div id="msgalert" class="container">
           <div class="alert alert-success alert-dismissible text-center" role="alert">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
               {{message}}
@@ -109,5 +109,6 @@
     </form>
     </div>
   </div>
+  {% include 'partials/_footer.html' %}
 </div>
 {% endblock %}

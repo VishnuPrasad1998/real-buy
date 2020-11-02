@@ -33,3 +33,4 @@ class ContactForm(forms.ModelForm):
             if(len(message) < 4 or len(message) > 500):
                 raise forms.ValidationError("In Description Enter minimum 4 characters and max 500 characters")
             
+        
