@@ -44,7 +44,7 @@ html {
     "imagcar imagcar imagcar"
     "descrip descrip descrip";
   grid-area: About;
-  height: auto;
+  height: 100%;
   margin-top: -20px;
   background-color: black;
   overflow: scroll;
@@ -194,4 +194,3 @@ html {
     background-color: #161616;
     color: #8c8c8c;
   }
-
