@@ -239,7 +239,7 @@
             {% if listings %}
             {% for listing in listings %}
             <div class="col-md-6">
-              <div class="cardfeatured" style="width: 40rem; height: 12rem;">
+              <div class="cardfeatured" style="width: auto; height: auto;">
                 <div class="row">
                   <div class="col-md-4"><a href="{% url 'listing' listing.id %}"><img src="{{listing.photo_main.url}}" height="120px" width="190px"></a></div>
                   <div class="col-md-8">
