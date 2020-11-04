@@ -64,7 +64,7 @@
 
 .footer-listing { 
   grid-area: footer-listing;
-  margin-top: 15px; 
+  margin-top: 10px; 
   margin-left: 20px;
   position: absolute; }
 
@@ -116,10 +116,10 @@
                         <a class="nav-link" href="{% url 'index' %}">ABOUT&nbsp;US</a>
                     </li>
                     <li class="nav-item mr-3">
-                        <a class="nav-link" href="{% url 'featured' %}">FEATURED&nbsp;PROPERTIES</a>
+                        <a class="nav-link" href="{% url 'index' %}#recentprops">FEATURED&nbsp;PROPERTIES</a>
                     </li>
                     <li class="nav-item mr-3">
-                        <a class="nav-link" href="{% url 'recent' %}">
+                        <a class="nav-link" href="{% url 'index' %}#featuredprops">
                         RECENT&nbsp;PROPERTIES</a>
                     </li>
                     <li class="nav-item mr-3">
@@ -152,7 +152,7 @@
           <div class="row">
 
             <div class="col-md-8">
-              <h3 id="aboutheading"><span style="color: #ffffff;">Recent </span>Properties</h3>
+              <h3 id="aboutheading"><span style="color: #ffffff;">Search </span>Properties</h3>
             </div>
 
           </div>
@@ -160,7 +160,7 @@
           <div class="row" style="margin-top: 2px;">
             <div class="col-md-8" style="margin-left: 25px; ">
                 <br />
-              <form action="{% url 'recent' %}">
+              <form action="{% url 'search' %}">
                 <!-- Form Row 1 -->
                 <div class="form-row">
                     <div class="col-md-2 mb-3">
