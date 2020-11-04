@@ -1,0 +1,272 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<style type="text/css">
+  @font-face {
+  font-family: Antipasto;
+  src: url('{% static 'webfonts/Antipasto_regular.otf' %}');
+  }
+  body{
+  color: white;
+  font-family: Antipasto;
+  }
+  #aboutheading {
+    margin-left: 16px;
+    margin-top: 6px;
+    color: #2fb56e;}
+
+.nav-link {
+    font-size: 17px;
+    color: white; 
+    text-decoration: none;           
+    }
+.nav-link:hover {
+    color: black;   
+    background-color: #2fb56e; 
+    text-decoration: none;         
+}
+ .grid-container {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr 0.4fr 1.6fr 1fr;
+  grid-template-rows: 0.2fr 2.6fr 0.2fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "logo-listing . navbar-listing navbar-listing"
+    "full-listing full-listing full-listing full-listing"
+    "footer-listing footer-listing . .";
+  border: none;
+}
+  #listingcontentmain {
+    background: url({% static 'img/Bg.png' %});
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+.logo-listing { 
+  grid-area: logo-listing;
+  position: absolute; }
+
+.navbar-listing { 
+  grid-area: navbar-listing;
+  left: -20px;
+  top: 0px; 
+  font-family: Antipasto;
+  opacity: 1;
+  text-transform: uppercase;
+   }
+
+.footer-listing { 
+  grid-area: footer-listing;
+  margin-top: 15px; 
+  margin-left: 20px;
+  position: absolute; }
+
+.full-listing { 
+  grid-area: full-listing;
+  background-color: black;
+  height: auto;
+  width: 100%;
+   }
+.featured-listings {
+  background-color: #161616;
+  margin-top: 5px;
+  height: 98%;
+  width: 100%;
+}
+.cardfeatured {
+    background-color: #161616;
+    border: 1px solid #232323;
+    margin-top: 13px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    padding: 20px 20px;
+}
+</style>
+<title>Real Buy</title>
+</head>
+<body>
+    <div class="grid-container" id="listingcontentmain">
+      <div class="logo-listing">
+        <a href="{% url 'index' %}">
+        <img src="{% static 'img/Logo.png' %}" height="48px" width="160px"></a>
+      </div>
+      <div class="navbar-listing">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent sticky-top" id="navbar-example2">
+                <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/img/logo.png" class="logo" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <ul class="navbar-nav">
+                    <li class="nav-item active mr-3">
+                        <a class="nav-link" href="{% url 'index' %}">HOME</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="{% url 'index' %}">ABOUT&nbsp;US</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="{% url 'featured' %}">FEATURED&nbsp;PROPERTIES</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="{% url 'recent' %}">
+                        RECENT&nbsp;PROPERTIES</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="login.html">
+                        <i class="fas fa-sign-in-alt"></i>
+
+                        ADD&nbsp;PROPERTY</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="{% url 'contactus' %}">CONTACT&nbsp;US</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="listings.html">Login</a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+      </div>
+      <div class="footer-listing">
+        <Footer>
+                <img src="{% static 'img/fb.png' %}" height="25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="{% static 'img/twitter.png' %}" height="25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="{% static 'img/g+.png' %}" height="25px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;© 2016. realbuy.com. All rights reserved.
+        </Footer>
+      </div>
+      <div class="full-listing">
+        <div class="featured-listings">
+
+          <div class="row">
+
+            <div class="col-md-8">
+              <h3 id="aboutheading"><span style="color: #ffffff;">Featured </span>Properties</h3>
+            </div>
+
+          </div>
+
+          <div class="row" style="margin-top: 2px;">
+            <div class="col-md-8" style="margin-left: 25px; ">
+                <br />
+              <form action="{% url 'featured' %}">
+                <!-- Form Row 1 -->
+                <div class="form-row">
+                    <div class="col-md-2 mb-3">
+                        <input type="text" name="city" class="form-control" placeholder="City..." value="{{ values.city }}" style="background-color: white;">
+                      </div>
+                      <div class="col-md-2 mb-3">
+                        <select name="price" class="form-control">
+                          <option selected="true" disabled="disabled">Exact Price</option>
+                          {% for key,value in price_choices.items %}
+                              <option value="{{ key }}"
+                              {% if key == values.price %}
+                                selected
+                              {% endif %}
+                              >{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                      <div class="col-md-2 mb-3">
+                        <label class="sr-only">Bedrooms</label>
+                        <select name="bedrooms" class="form-control">
+                          <option selected="true" disabled="disabled">Bedrooms (Enter Count)</option>
+                          {% for key,value in bedroom_choices.items %}
+                              <option value="{{ key }}"
+                              {% if key == values.bedrooms %}
+                                selected
+                              {% endif %}
+                              >{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                      </div>
+                      <div class="col-md-2 mb-3" style="margin-top: -8px;">
+                          <button class="btn btn-success btn-block mt-2" type="submit">Search</button>
+                      </div>
+                      <div class="col-md-4" position="relative">
+                        {% if listings.has_other_pages %}
+                          <ul class="pagination">
+                            {% if listings.has_previous %}
+                              <li class="page-item">
+                                <a href="?page={{listings.previous_page_number}}" class="page-link">&laquo;</a>
+                              </li>
+                            {% else %}
+                              <li class="page-item disabled">
+                                <a class="page-link"> &laquo;</a>
+                              </li>
+                            {% endif %}
+                            {% for i in listings.paginator.page_range %}
+                              {% if listings.number == i %}
+                                <li class="page-item active">
+                                  
+                                </li>
+                              {% else %}
+                                <li class="page-item">
+                                </li>
+                              {% endif %}
+                            {% endfor %}
+                            {% if listings.has_next %}
+                              <li class="page-item">
+                                <a href="?page={{listings.next_page_number}}" class="page-link">&raquo;</a>
+                              </li>
+                            {% else %}
+                              <li class="page-item disabled">
+                                <a class="page-link">&raquo;</a>
+                              </li>
+                            {% endif %}
+                          </ul>
+                        {% endif %}
+                      </div>
+                </div>
+                
+                
+              </form>
+            </div>
+          
+          </div>
+          <div class="row">
+            {% if listings %}
+            {% for listing in listings %}
+            <div class="col-md-6">
+              <div class="cardfeatured" style="width: 40rem; height: 12rem;">
+                <div class="row">
+                  <div class="col-md-4"><a href="{% url 'listing' listing.id %}"><img src="{{listing.photo_main.url}}" height="120px" width="190px"></a></div>
+                  <div class="col-md-8">
+                    <strong style="color: #2fb56e">₹ {{listing.price}}</strong>
+                    <p>TYPE & LOCATION: {{listing.property_type}}/{{listing.location}}
+                    <br />PLOT AREA: {{listing.built_up_area}}&nbsp;{{listing.unit}}
+                    <br />BEDROOMS: {{listing.bedrooms}}
+                    <br />POSTED: {{listing.posting_date}}</p>
+                  </div>
+                </div>
+                <div class="row" style="background-color:#232323">
+                  <div class="col-md-2"><img src="{% static 'img/Mail_white.png' %}" alt="" height="18px" width="18px"><small>SEND&nbsp;MAIL</small></div>
+                  <div class="col-2"><img src="{% static 'img/Call_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;PHONE</small></div>
+                  <div class="col-md-2"><img src="{% static 'img/Fav_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;SHORTLIST</small></div>
+                  <div class="col-md-2"><img src="{% static 'img/Map_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>MAP</small></div>
+                  <div class="col-md-2"><img src="{% static 'img/sharing_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>SHARE</small></div>
+                </div>
+            </div>
+          </div>
+          {% endfor %}
+          {% endif %}
+       </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
