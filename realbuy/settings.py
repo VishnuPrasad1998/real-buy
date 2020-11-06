@@ -25,7 +25,7 @@ SECRET_KEY = 'hyiq$7ysk#+5#h45(ixwe1(tu@$*3ye#5c4@4h=gwb##3%&3y('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['realbuy-demo.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['realbuy-demo.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -45,7 +45,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'storages',
     'accounts',
-
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
 ]
 
 MIDDLEWARE = [
@@ -121,6 +126,37 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    },
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'email',
+            'first_name',
+            'last_name',
+            'middle_name',
+            'name',
+            'name_format',
+            'picture',
+            'short_name'
+        ],
+        'EXCHANGE_TOKEN': True,
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v7.0',
+    }}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -162,3 +198,12 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'realbuy2020@gmail.com'
 EMAIL_HOST_PASSWORD = 'realbuy@vishnu'
+
+AUTHENTICATION_BACKENDS = {
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+}
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'

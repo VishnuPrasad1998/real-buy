@@ -1,3 +1,5 @@
+{% load socialaccount %}
+{% providers_media_js %}
 <!DOCTYPE html>
 <html>
     
@@ -113,6 +115,10 @@
 					<div class="d-flex justify-content-center links">
 						Don't have an account? <a href="{% url 'reset_password' %}" class="ml-2">Forgot Password</a>
 					</div>
+					<div class="container">
+                        <a href="{% provider_login_url "google" %}">Google Connect</a>
+                        <a href="{% provider_login_url "facebook" method="js_sdk" %}">FB Connect</a>
+                    </div>
 				</div>
 			</div>
 		</div>
