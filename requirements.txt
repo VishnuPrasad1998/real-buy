@@ -16,3 +16,4 @@ dj3-cloudinary-storage
 django-storages
 boto3
 django-filter==2.4.0
+django-allauth
