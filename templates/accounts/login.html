@@ -79,7 +79,7 @@
 		}
 
 		#messages{
-			background-color: grey;
+			background-color: rgb(255, 102, 102);
 			color: #fff;
 			padding: 10px;
 			margin-top: 10px;
@@ -100,10 +100,10 @@
 					<form method="POST" action="">
                         {% csrf_token %}
 						<div class="input-group mb-3">
-							<input type="text" name="email" placeholder="Username/Email Address..." class="form-control">
+							<input type="text" name="email" placeholder="Username/Email Address..." class="form-control" required>
 						</div>
 						<div class="input-group mb-2">
-								<input type="password" name="password" placeholder="Password..." class="form-control" >
+								<input type="password" name="password" placeholder="Password..." class="form-control" required>
 						</div>
 						<div class="input-group mb-2">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'reset_password' %}" class="ml-2">Forgot Password</a>
@@ -115,6 +115,9 @@
 					</form>
 
 				</div>
+				{% for message in messages %}
+					<p id="messages">{{message}}</p>
+				{% endfor %}
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
 						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>

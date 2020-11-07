@@ -21,49 +21,52 @@ def registerPage(request):
         role = int(role)
         print(role, type(role))
         if(role==2):
-        	print("Leven Realtor aan ketta")
-        	if password1 == password2:
-	      # Check username
-	            if User.objects.filter(username=username).exists():
-	                return redirect('register')
-	            else:
-	                if User.objects.filter(email=email).exists():
-	                    return redirect('register')
-	                else:
-                		user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, password=password1, email=email)
-                		user.save()
-                		group = role
-                		user.groups.add(group)
-                		realtor = Realtor(name=name, first_name=first_name, last_name=last_name, username=username, email=email)
-                		realtor.save()
-                		return redirect('login')
-	          
-	        else:
-	            return redirect('register')
+            print("Leven Realtor aan ketta")
+            if password1 == password2:
+          # Check username
+                if User.objects.filter(username=username).exists():
+                    return redirect('register')
+                else:
+                    if User.objects.filter(email=email).exists():
+                        return redirect('register')
+                    else:
+                        user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, password=password1, email=email)
+                        user.save()
+                        group = role
+                        user.groups.add(group)
+                        realtor = Realtor(name=name, first_name=first_name, last_name=last_name, username=username, email=email)
+                        realtor.save()
+                        return redirect('login')
+              
+            else:
+                return redirect('register')
         else:
-        	print("Leven User aan ketta")
+            print("Leven User aan ketta")
         #Check if password match
-	        if password1 == password2:
-	      # Check username
-	            if User.objects.filter(username=username).exists():
-	                return redirect('register')
-	            else:
-	                if User.objects.filter(email=email).exists():
-	                    return redirect('register')
-	                else:
-	                    user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, password=password1, email=email)
-	                    user.save()
-	                    group = role
-	                    user.groups.add(group)
-	                    return redirect('login')
-	          
-	        else:
-	            return redirect('register')
+            if password1 == password2:
+          # Check username
+                if User.objects.filter(username=username).exists():
+                    messages.info(request, "Person with same username does exist")
+                    return redirect('register')
+                else:
+                    if User.objects.filter(email=email).exists():
+                        messages.info(request, "Person with same email does exist")
+                        return redirect('register')
+                    else:
+                        user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, password=password1, email=email)
+                        user.save()
+                        group = role
+                        user.groups.add(group)
+                        return redirect('login')
+              
+            else:
+                messages.info(request, "Password doesnot match")
+                return redirect('register')
     else:
         return render(request, 'accounts/register.html')
 
 def loginPage(request):
-	if request.method == 'POST':
+    if request.method == 'POST':
 
             email = request.POST.get('email')
             password = request.POST.get('password')
@@ -75,20 +78,19 @@ def loginPage(request):
                     user = authenticate(request, username=val.username, password=password)
             else:
                 user = authenticate(request, username=email, password=password)
-                print(user.groups.all()[0].name)
 
             if user is not None:
                 login(request, user)
                 if(user.groups.all()[0].name == "Realtor"):
-                	return redirect('dashboard_realtor')
+                    return redirect('dashboard_realtor')
                 else:
-                	return redirect('dashboard_user')
+                    return redirect('dashboard_user')
 
             else:
-                print("Invalid login credentials")
+                messages.info(request, 'Username OR password is incorrect')
 
-	context = {}
-	return render(request, 'accounts/login.html', context)
+    context = {}
+    return render(request, 'accounts/login.html', context)
 
 def logoutUser(request):
     logout(request)
