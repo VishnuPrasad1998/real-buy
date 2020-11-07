@@ -19,9 +19,8 @@ def registerPage(request):
         name = first_name + last_name 
         role = request.POST['role'] 
         role = int(role)
-        print(role, type(role))
         if(role==2):
-            print("Leven Realtor aan ketta")
+            
             if password1 == password2:
           # Check username
                 if User.objects.filter(username=username).exists():
@@ -41,7 +40,6 @@ def registerPage(request):
             else:
                 return redirect('register')
         else:
-            print("Leven User aan ketta")
         #Check if password match
             if password1 == password2:
           # Check username
