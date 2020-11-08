@@ -78,14 +78,14 @@ html {
 
 .navbar { 
     grid-area: navbar;
-    left: -50px;
+    left: -75px;
     top: 0px; 
     font-family: Antipasto;
     opacity: 1;
     text-transform: uppercase;
 }
 .nav-link {
-    font-size: 17px;
+    font-size: 15px;
     color: white; 
     text-decoration: none;           
     }
