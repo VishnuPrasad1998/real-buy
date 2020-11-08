@@ -141,7 +141,6 @@
     <form action="{% url 'searchdetails' %}" method="POST">
     {% csrf_token %}
     <div class="input-group mb-3">
-        
         <input type="text" class="form-control" name="keywords" placeholder="Type Location/Keyword" aria-label="Recipient's username" aria-describedby="basic-addon2" style="background-color: white;">
         <div class="input-group-append">
           <button class="btn btn-success" type="submit">Search</button>

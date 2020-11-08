@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'storages',
     'accounts',
+    'corsheaders',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -207,3 +209,5 @@ AUTHENTICATION_BACKENDS = {
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = 'dashboard_user'
+
+CORS_ORIGIN_ALLOW_ALL = True
