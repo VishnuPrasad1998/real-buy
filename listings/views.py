@@ -2,17 +2,19 @@ from django.shortcuts import render
 from .models import Listing
 from django.core.paginator import EmptyPage, Paginator, PageNotAnInteger
 from .choices import price_choices, bedroom_choices
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 
 def listing(request, listing_id):
     listing = Listing.objects.raw('SELECT * FROM listings_listing WHERE id = %d' % listing_id)
     return render(request, 'listings/listing.html', {'listing': listing})
 
+@csrf_exempt
 def search(request):
     queryset_list = Listing.objects.order_by('-price')
-
     if 'city' in request.GET:
         city = request.GET['city']
+        print(city)
         if city:
             queryset_list = queryset_list.filter(city__icontains=city)
 
@@ -41,7 +43,6 @@ def search(request):
         bedrooms = request.GET['bedrooms']
         queryset_list = queryset_list.filter(city__icontains=city)&queryset_list.filter(bedrooms__icontains=bedrooms)
 
-    print(queryset_list)
     paginator = Paginator(queryset_list, 4)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
