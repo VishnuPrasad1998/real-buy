@@ -92,6 +92,7 @@ def loginPage(request):
 
 def logoutUser(request):
     logout(request)
+    messages.info(request, "Logged out successfully...")
     return redirect('login')
 
 def dashboard_realtor(request):
