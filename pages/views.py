@@ -18,12 +18,20 @@ def index(request):
 
 def searchdetails(request):
     queryset_list = Listing.objects.order_by('-price')
+    paginator = Paginator(queryset_list, 4)
+    page = request.GET.get('page')
+    paged_listings = paginator.get_page(page)
+    
     if request.method == 'POST':
        keywords = request.POST['keywords']
        if keywords:
             queryset_list = queryset_list.filter(city__icontains=keywords)|queryset_list.filter(title__icontains=keywords)|queryset_list.filter(description__icontains=keywords)|queryset_list.filter(location__icontains=keywords)
+            paginator = Paginator(queryset_list, 4)
+            page = request.GET.get('page')
+            paged_listings = paginator.get_page(page)
+            
     context = {
-        'listings': queryset_list,
+        'listings': paged_listings,
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices
     }
