@@ -6,7 +6,7 @@ class Realtor(models.Model):
     first_name = models.CharField(max_length=200, default="Adam")
     last_name = models.CharField(max_length=200, default="John")
     username = models.CharField(max_length=200, default="adj111")
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True, default='photos/2020/10/30/avatar.jpeg')
     description = models.TextField(blank=True)
     phone = models.CharField(max_length=20, blank=True)
     email = models.CharField(max_length=50)
