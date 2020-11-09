@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from realtors.models import Realtor
+from listings.models import Listing
 from django.contrib.auth.models import Group
 import re
 
@@ -96,7 +97,16 @@ def logoutUser(request):
     return redirect('login')
 
 def dashboard_realtor(request):
-    return render(request, 'accounts/realtor_dashboard.html')
+    user = request.user
+    listing_details = Listing.objects.filter(realtor__username__contains=user)
+    realtor_details = Realtor.objects.filter(username=user)
+    
+    context = {
+        'listing_details': listing_details,
+        'realtor_details': realtor_details
+    }
+    return render(request, 'accounts/realtor_dashboard.html', context)
 
 def dashboard_user(request):
     return render(request, 'accounts/user_dashboard.html')
+

@@ -5,44 +5,37 @@
     <div class="profile">
       <div id="profheader">
       <div class="row">
-        {% if realtor_details %}
-        {% for realtor in realtor_details %}
         <div class="col-md-4">
-          <img src="{{realtor.photo.url}}" id="profpic">
+          <img src="static/img/avatar.jpeg" id="profpic">
         </div>
         <div class="col-md-4" id="profbasic">
-          <p><img src="{% static 'img/profileaccount_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;{{realtor.first_name}}</p>
-          <p><img src="{% static 'img/mail_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;{{realtor.email}}</p>
-          <p><a href="{% url 'logout' %}">Logout</a> </p>
+          <p><img src="{% static 'img/profileaccount_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;Avin</p>
+          <p><img src="{% static 'img/mail_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;avin@gmail.com</p>
         </div>
         <div class="col-md-3" id="profadvanced">
-          <p><img src="{% static 'img/phone_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;{{realtor.phone}}</p>
-          <p id="pidi"><img src="{% static 'img/location_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;{{realtor.address}}</p>
+          <p><img src="{% static 'img/phone_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;+91 9895852773</p>
+          <p id="pidi"><img src="{% static 'img/location_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;Chirapparambil House Anickadu. P. O Pallickathodu, Kottayam</p>
         </div>
         <div class="col-md-1" style="top: 20px;">
               <img src="{% static 'img/edit1.png' %}" height="20px" width="15px">
         </div>
-        {% endfor %}
-        {% endif %}
       </div>
     </div>
-    
+
     <div id="profbody">
       <h3 id="aboutheading"><span style="color: #ffffff;">My</span> Properties</h3><br />
-      {% if listing_details %}
-     {% for l in listing_details %}
       <div class="row">
       <div class="col-md-6">
         <div class="cardfeatured" style="width: 50rem; height: 12rem;">
           <div class="row">
             <div class="col-md-4"><img src="{% static 'img/Bitmap.png' %}" height="120px" width="190px"></div>
             <div class="col-md-6">
-                <strong style="color: #2fb56e">₹ {{l.price}}</strong>
-                <p>TYPE & LOCATION: {{l.property_type}}/{{l.location}}
-                <br />PLOT AREA: {{l.built_up_area}}&nbsp;{{l.unit}}
-                <br />BEDROOMS: {{l.bedrooms}}
-                <br />POSTED: {{l.posting_date}}</p>
-              </div>
+              <strong style="color: #2fb56e">₹ 28,235/Month</strong>
+              <p>TYPE & LOCATION: Residential/Kakkanad
+              <br />PLOT AREA: 80 Cents
+              <br />SOCIETY: Green Casa
+              <br />POSTED: May 20, 2016</p>
+            </div>
             <div class="col-md-2">
               <img src="{% static 'img/edit1.png' %}" height="15px" width="15px">&nbsp;&nbsp;&nbsp;&nbsp;
               <img src="{% static 'img/delete-button.png' %}" height="15px" width="15px">
@@ -52,8 +45,27 @@
     </div>
 
     </div>
-    {% endfor %}
-    {% endif %}
+    <div class="row">
+      <div class="col-md-6">
+        <div class="cardfeatured" style="width: 50rem; height: 12rem;">
+          <div class="row">
+            <div class="col-md-4"><img src="{% static 'img/Bitmap.png' %}" height="120px" width="190px"></div>
+            <div class="col-md-6">
+              <strong style="color: #2fb56e">₹ 28,235/Month</strong>
+              <p>TYPE & LOCATION: Residential/Kakkanad
+              <br />PLOT AREA: 80 Cents
+              <br />SOCIETY: Green Casa
+              <br />POSTED: May 20, 2016</p>
+            </div>
+            <div class="col-md-2">
+              <img src="{% static 'img/edit1.png' %}" height="20px" width="15px">&nbsp;&nbsp;&nbsp;&nbsp;
+              <img src="{% static 'img/delete-button.png' %}" height="20px" width="15px">
+            </div>
+          </div>
+      </div>
+    </div>
+    
+    </div>
     </div>
 
     </div>
@@ -77,4 +89,3 @@
   </div>
 </div>
 {% endblock %}
-

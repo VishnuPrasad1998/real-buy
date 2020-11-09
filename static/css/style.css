@@ -194,3 +194,33 @@ html {
     background-color: #161616;
     color: #8c8c8c;
   }
+  #profheader{
+    background-color: #1e1e1e;
+    min-height: 160px;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: auto;
+  }
+  #profpic{
+    height: 125px;
+    margin-left: 10px;
+    margin-top: 20px;
+    width: 125px;
+    border-radius: 125px;
+  }
+  #profbasic{
+    margin-top: 40px;
+  }
+  #profadvanced{
+    margin-top: 40px;
+  }
+  #profbody{
+    display: flex;
+    flex-direction: column;
+  }
+  .profile {
+    background-color: #161616;
+    height: inherit;
+    margin: 5px 5px;
+  }
