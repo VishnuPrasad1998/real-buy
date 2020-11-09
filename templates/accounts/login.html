@@ -88,6 +88,46 @@
 
 </head>
 <body>
+	<div class="navbar-listing">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-transparent sticky-top" id="navbar-example2">
+                <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/img/logo.png" class="logo" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <ul class="navbar-nav">
+                    <li class="nav-item active mr-3">
+                        <a class="nav-link" href="{% url 'index' %}">HOME</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="{% url 'index' %}">ABOUT&nbsp;US</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="{% url 'index' %}#featuredprops">FEATURED&nbsp;PROPERTIES</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="{% url 'index' %}#recentprops">
+                        RECENT&nbsp;PROPERTIES</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="login.html">
+
+                        ADD&nbsp;PROPERTY</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="{% url 'contactus' %}">CONTACT&nbsp;US</a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="listings.html">Login</a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </nav>
+      </div>
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
