@@ -54,3 +54,6 @@ def search(request):
     #   'values': request.GET
     }
     return render(request, 'listings/search.html', context)
+
+def addlisting(request):
+    return render(request, "listings/addlisting.html")
