@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-from realtors.models import Realtor
+from django.contrib.auth.models import User
 # Create your models here.
 class Listing(models.Model):
     ACTION_CHOICES = (('ONSALE', 'SELL'),('ONRENT', 'RENT'))
@@ -18,7 +18,7 @@ class Listing(models.Model):
     action_type = models.CharField(max_length=200, choices=ACTION_CHOICES)
     title = models.CharField(max_length=200, blank=False)
     property_type = models.CharField(max_length=200, choices=PT_CHOICES)
-    realtor = models.ForeignKey(Realtor, on_delete=models.DO_NOTHING)
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=False)
     photo_main = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=False)
     city = models.CharField(max_length=100, blank=False)
     address = models.CharField(max_length=200, blank=False)

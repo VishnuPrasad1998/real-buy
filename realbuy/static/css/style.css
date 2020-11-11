@@ -94,6 +94,11 @@ html {
     background-color: #2fb56e; 
     text-decoration: none;         
 }
+/* .active {
+  color: black;   
+    background-color: #2fb56e; 
+    text-decoration: none;  
+} */
 
 .Logo { 
     grid-area: Logo;
@@ -172,7 +177,7 @@ html {
 }
 .contact {
     background-color: #161616;
-    height: inherit;
+    height: auto;
     margin: 5px 5px;
   }
   #contact-map {

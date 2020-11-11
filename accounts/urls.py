@@ -7,8 +7,8 @@ urlpatterns = [
     path('logout/',views.logoutUser, name='logout'),
     path('register/',views.registerPage, name='register'),
     path('login/',views.loginPage, name='login'),
-    path('dashboarduser/',views.dashboard_user, name='dashboard_user'),
-    path('dashboardrealtor/',views.dashboard_realtor, name='dashboard_realtor'),
+    path('dashboard/',views.dashboard, name='dashboard'),
+    path('profileupdate/',views.profileupdate, name='profileupdate'),
 
     path('reset_password/', 
     auth_views.PasswordResetView.as_view(template_name="accounts/password_reset.html"),

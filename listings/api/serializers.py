@@ -5,7 +5,7 @@ class ListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Listing
         fields = ['id', 'title', 'action_type', 
-        'property_type', 'realtor', 'photo_main', 
+        'property_type', 'user', 'photo_main', 
         'city', 'location', 'address', 'price', 
         'bedrooms', 'bathrooms', 'built_up_area', 
         'carpet_area', 'unit', 'transaction_type', 

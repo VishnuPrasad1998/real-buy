@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django_filters',
     'contactus',
     'listings',
-    'realtors',
+    # 'realtors',
     'rest_framework',
     'storages',
     'accounts',
@@ -208,6 +208,6 @@ AUTHENTICATION_BACKENDS = {
 
 SITE_ID = 1
 
-LOGIN_REDIRECT_URL = 'dashboard_user'
+LOGIN_REDIRECT_URL = 'dashboard'
 
 CORS_ORIGIN_ALLOW_ALL = True
