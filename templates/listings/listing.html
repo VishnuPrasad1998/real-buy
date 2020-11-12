@@ -1,37 +1,87 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-<title>Real Buy</title>
-</head>
-<body style="background-color: black;">
-    <div id="featuredproops">
-        <h3 id="aboutheading"><span style="color: #ffffff;">All </span>Properties</h3>
-        <!-- Cards -->
-        <div class="row">
-          {% if listing %}
-          {% for item in listing %}
-            <div class="col-sm-4">
-                <div class="card" style="width: 20rem; height: 20rem;">
-                    <img class="card-img-top" src="{{item.photo_main.url}}" alt="Card image cap" width="100px" height="100px">
-                    <div class="card-body">
-                      <p class="card-text">
-                      <small>{{item.title}}</small><br />
-                      <strong style="color: #2fb56e;">₹{{item.price}}</strong><br/>
-                      <img src="{% static 'img/Bed_small.svg' %}">&nbsp;&nbsp;&nbsp;Bed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.bedrooms}}<br />
-                      <img src="{% static 'img/bath_small.svg' %}">&nbsp;&nbsp;&nbsp;Bathroom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.bathrooms}}<br />
-                      <img src="{% static 'img/map_small.svg' %}">&nbsp;&nbsp;&nbsp;{{item.location}}, {{item.city}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg">
-                      </p>
-                    </div>
-                  </div>
-            </div>
-            {% endfor %}
-            {% endif %}
-            </div>
+{% block content %}
+<div class="About" id="abt">
+  <div class="singlelisting">
+    <div class="row">
+      {% if listing %}
+      {% for item in listing %}
+
+      <div class="col-md-8">
+        <img src="{{item.photo_main.url}}" width="150%" height="280px">
+      </div>
+      <div class="col-md-4">
+        <div class="row" style="height: 70px; width: 106%; background-color: #000000" >
+          <div class="col-md-2">
+          <img src="{% static 'img/Location_carousel.png' %}" height="25px" width="25px" style="margin-top: 20px; margin-left: 10px;">
+          </div>
+          <div class="col-md-8" style="margin-top: 10px;">
+            <small style="margin-left: 10px;">{{item.title}}</small><br /><span style="margin-left: 10px; margin-top: 10px;">{{item.price}}</span>
+          </div>
+        </div>
+        <div class="row" style="height: 70px; width: 106%; background-color: #101010" >
+          <div class="col-md-2">
+          <img src="{% static 'img/Area.png' %}" height="25px" width="25px" style="margin-top: 20px; margin-left: 10px;">
+          </div>
+          <div class="col-md-8" style="margin-top: 10px;">
+            <small style="margin-left: 10px;">Area</small><br /><span style="margin-left: 10px; margin-top: 10px;">{{item.built_up_area}}{{item.unit}}</span>
+          </div>
+        </div>
+        <div class="row" style="height: 70px; width: 106%; background-color: #000000" >
+          <div class="col-md-2">
+          <img src="{% static 'img/Bed.png' %}" height="25px" width="25px" style="margin-top: 20px; margin-left: 10px;">
+          </div>
+          <div class="col-md-8" style="margin-top: 10px;">
+            <small style="margin-left: 10px;">Bedrooms</small><br /><span style="margin-left: 10px; margin-top: 10px;">{{item.bedrooms}}</span>
+          </div>
+        </div>
+        <div class="row" style="height: 70px; width: 106%; background-color: #101010" >
+          <div class="col-md-2">
+          <img src="{% static 'img/bathroom.png' %}" height="25px" width="25px" style="margin-top: 20px; margin-left: 10px;">
+          </div>
+          <div class="col-md-8" style="margin-top: 10px;">
+            <small style="margin-left: 10px;">Bathrooms</small><br /><span style="margin-left: 10px; margin-top: 10px;">{{item.bathrooms}}</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
     </div>
-</body>
-</html>
+    <div class="container">
+    <div class="row" style="max-width: 105%; padding-right: 20px; padding-left: 20px; padding-top: 30px; font-size: 14px;">
+      <p>{{item.description}}</p>
+      <p style="font-size: 18px;"><span style="color: #2fb56e;">Seller info</span><br />First<br />world</p>
+    </div>
+    </div>
+    <div class="container" style="height: 40px; width: 95%; background-color: #232323; padding-left:10px; padding-right: 10px;">
+    <div class="row" >
+      <div class="col-md-2" style="top: 7px; left: 10px;"><img src="{% static 'img/Mail_white.png' %}" alt="" height="18px" width="18px"><small>SEND&nbsp;MAIL</small></div>
+          <div class="col-2" style="top: 7px"><img src="{% static 'img/Call_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;PHONE</small></div>
+          <div class="col-md-2" style="top: 7px"><img src="{% static 'img/Fav_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;SHORTLIST</small></div>
+          <div class="col-md-2" style="top: 7px"><img src="{% static 'img/Map_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>MAP</small></div>
+          <div class="col-md-2" style="top: 7px"><img src="{% static 'img/sharing_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>SHARE</small></div>
+    </div>
+  </div>
+  </div> 
+</div>
+
+<div class="LHS">
+  <div class="Heading"><h2>Welcome to realbuy</h2></div>
+  <div class="Content"><p>Realbuy is a real estate firm with a vision to create luxurious living spaces that surpass the expectations of customers. Although recently launched the firm is driven with an instinct and far stretching insight that improves the real estate offerings in the city...</p></div>
+  <div class="search">
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <form action="{% url 'searchdetails' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="keywords" placeholder="Type Location/Keyword/City" aria-label="Recipient's username" aria-describedby="basic-addon2" style="background-color: white;">
+        <div class="input-group-append">
+          <button class="btn btn-success" type="submit">Search</button>
+        </div>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

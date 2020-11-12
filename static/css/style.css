@@ -233,3 +233,8 @@ html {
     margin-bottom: 15px;
     padding: 20px 20px;
 }
+.singlelisting {
+  background-color: #161616;
+  height: auto;
+  margin: 5px 5px;
+}
