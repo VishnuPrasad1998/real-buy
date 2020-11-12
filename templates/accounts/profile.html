@@ -1,109 +1,44 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-    
-<head>
-	<title>Register</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+{% block content %}
+<div class="About" id="abt">
+    <div class="profile">
+        <div class="container" id="editprof">
+        <h3 id="aboutheading"><span style="color: #ffffff;">Edit</span> Profile</h3><br />   
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+        
+        <input class="btn btn-success" type="submit" name="Update Information">
+        </form>
+    </div>
+    </div>
+  </div>
 
-	<style>
-		@font-face {
-		font-family: Antipasto;
-		src: url('{% static 'webfonts/Antipasto_regular.otf' %}');
-		}
-		body,
-		html {
-			margin: 0;
-			padding: 0;
-			background: url({% static 'img/Bg.png' %});
-			background-size: cover;
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			color: white;
-			font-family: Antipasto;
-		}
-		.user_card {
-			width: auto;
-			margin-top: auto;
-			margin-bottom: auto;
-			background: #161616;
-			position: relative;
-			display: flex;
-			justify-content: center;
-			flex-direction: column;
-			padding: 10px;
-			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			border-radius: 5px;
+<div class="LHS">
+  <div class="Heading"><h2>Welcome to realbuy</h2></div>
+  <div class="Content"><p>Realbuy is a real estate firm with a vision to create luxurious living spaces that surpass the expectations of customers. Although recently launched the firm is driven with an instinct and far stretching insight that improves the real estate offerings in the city...</p></div>
+  <div class="search">
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <form action="{% url 'searchdetails' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="keywords" placeholder="Type Location/Keyword/City" aria-label="Recipient's username" aria-describedby="basic-addon2" style="background-color: white;">
+        <div class="input-group-append">
+          <button class="btn btn-success" type="submit">Search</button>
+        </div>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
 
-		}
 
-		.form_container {
-			margin-top: 20px;
-		}
 
-		#form-title{
-			color: #fff;
-		}
-		.login_btn {
-			width: 100%;
-			background: #2fb56e !important;
-			color: white !important;
-		}
-		.login_btn:focus {
-			box-shadow: none !important;
-			outline: 0px !important;
-		}
-		.login_container {
-			padding: 0 2rem;
-		}
-		.input-group-text {
-			background: #f7ba5b !important;
-			color: white !important;
-			border: 0 !important;
-			border-radius: 0.25rem 0 0 0.25rem !important;
-		}
-		.input_user,
-		.input_pass:focus {
-			box-shadow: none !important;
-			outline: 0px !important;
-		}
-		#messages{
-			background-color: rgb(255, 102, 102);
-			color: #fff;
-			padding: 10px;
-			margin-top: 10px;
-		}
-	</style>
-
-</head>
-<body>
-	<div class="container h-100" id="registerbg">
-		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
-				<div class="d-flex justify-content-center">
-					<h3 id="form-title">EDIT PROFILE</h3>
-				</div>
-				<div class="d-flex justify-content-center form_container">
-
-                    <form method="POST" action="" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{form.as_p}}
                     
-                    <input class="btn btn-success" type="submit" name="Update Information">
-                    </form>
-                </div>
-    				
-		
-			</div>
-		</div>
-	</div>
-</body>
-</html>
+
 
 
 

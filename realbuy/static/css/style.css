@@ -243,3 +243,7 @@ html {
   height: auto;
   margin: 5px 5px;
 }
+#editprof {
+  text-align: center;
+  margin: auto;
+}
