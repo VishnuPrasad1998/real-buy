@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Listing
+from .forms import ListingModelForm
 from django.core.paginator import EmptyPage, Paginator, PageNotAnInteger
 from .choices import price_choices, bedroom_choices
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def listing(request, listing_id):
@@ -55,5 +57,33 @@ def search(request):
     }
     return render(request, 'listings/search.html', context)
 
+@login_required(login_url='login')
 def addlisting(request):
-    return render(request, "listings/addlisting.html")
+    user = request.user
+    form = ListingModelForm()
+    if  request.method == 'POST':
+        action_type = request.POST['action_type']
+        title = request.POST['title']
+        property_type = request.POST['property_type']
+        photo_main = request.FILES['photo_main']
+        city = request.POST['city']
+        address = request.POST['address']
+        location = request.POST['location']
+        price = request.POST['price']
+        bedrooms = request.POST['bedrooms']
+        bathrooms = request.POST['bathrooms']
+        built_up_area = request.POST['built_up_area']
+        carpet_area = request.POST['carpet_area']
+        unit = request.POST['unit']
+        transaction_type = request.POST['transaction_type']
+        property_floor = request.POST['property_floor']
+        ownership = request.POST['ownership']
+        total_floors = request.POST['total_floors']
+        availability = request.POST['availability']
+        description = request.POST['description']
+        posting_date = request.POST['posting_date']
+        listing = Listing(action_type=action_type, title=title, user=user, property_type=property_type, photo_main=photo_main, city=city, address=address, location=location, price=price, bedrooms=bedrooms, bathrooms=bathrooms, built_up_area=built_up_area, unit=unit, transaction_type=transaction_type, property_floor=property_floor, ownership=ownership, total_floors=total_floors, availability=availability, description=description, posting_date=posting_date, carpet_area=carpet_area)
+        print(listing)
+        listing.save()
+        return redirect('dashboard')
+    return render(request, "listings/addlisting.html", {"form": form})

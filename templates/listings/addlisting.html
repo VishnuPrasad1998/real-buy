@@ -3,7 +3,12 @@
 {% block content %}
 <div class="About" id="abt">
     <div class="contact">
-      <h1>Page is under construction !!!</h1>
+      <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+    
+      <input class="btn btn-success" type="submit" name="Add">
+      </form>
     </div>
   </div>
 

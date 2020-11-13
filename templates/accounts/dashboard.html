@@ -32,7 +32,7 @@
       <div class="col-md-6">
         <div class="cardfeatured" style="width: 50rem; height: 12rem;">
           <div class="row">
-            <div class="col-md-4"><img src="{% static 'img/Bitmap.png' %}" height="120px" width="190px"></div>
+            <div class="col-md-4"><img src="{{l.photo_main.url}}" height="120px" width="190px"></div>
             <div class="col-md-6">
                 <strong style="color: #2fb56e">₹ {{l.price}}</strong>
                 <p>TYPE & LOCATION: {{l.property_type}}/{{l.location}}
