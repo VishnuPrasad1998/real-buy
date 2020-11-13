@@ -1,9 +1,12 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from .models import Listing
 from .forms import ListingModelForm
 from django.core.paginator import EmptyPage, Paginator, PageNotAnInteger
 from .choices import price_choices, bedroom_choices
 from django.views.decorators.csrf import csrf_exempt
+from django.http.response import JsonResponse
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -81,9 +84,10 @@ def addlisting(request):
         total_floors = request.POST['total_floors']
         availability = request.POST['availability']
         description = request.POST['description']
-        posting_date = request.POST['posting_date']
-        listing = Listing(action_type=action_type, title=title, user=user, property_type=property_type, photo_main=photo_main, city=city, address=address, location=location, price=price, bedrooms=bedrooms, bathrooms=bathrooms, built_up_area=built_up_area, unit=unit, transaction_type=transaction_type, property_floor=property_floor, ownership=ownership, total_floors=total_floors, availability=availability, description=description, posting_date=posting_date, carpet_area=carpet_area)
+        listing = Listing(action_type=action_type, title=title, user=user, property_type=property_type, photo_main=photo_main, city=city, address=address, location=location, price=price, bedrooms=bedrooms, bathrooms=bathrooms, built_up_area=built_up_area, unit=unit, transaction_type=transaction_type, property_floor=property_floor, ownership=ownership, total_floors=total_floors, availability=availability, description=description, carpet_area=carpet_area)
         print(listing)
         listing.save()
-        return redirect('dashboard')
+        messages.success(request, 'Your property was added successfully!')
+        return redirect('dashboard' )
+        # return redirect('dashboard')
     return render(request, "listings/addlisting.html", {"form": form})

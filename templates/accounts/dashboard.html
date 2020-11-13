@@ -12,6 +12,17 @@
           <p><img src="{% static 'img/profileaccount_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;{{user.first_name}}</p>
           <p><img src="{% static 'img/mail_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;{{user.email}}</p>
           <p><a href="{% url 'logout' %}">Logout</a> </p>
+          
+            {% if messages %}
+            {% for m in messages %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              {{m}}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {% endfor %}
+            {% endif %}
         </div>
         <div class="col-md-3" id="profadvanced">
           <p><img src="{% static 'img/phone_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;{{user.userprofile.phone}}</p>
@@ -32,7 +43,7 @@
       <div class="col-md-6">
         <div class="cardfeatured" style="width: 50rem; height: 12rem;">
           <div class="row">
-            <div class="col-md-4"><img src="{{l.photo_main.url}}" height="120px" width="190px"></div>
+            <div class="col-md-4"><img src="{{l.photo_main.url}}" height="120px" width="190px" loading="lazy"></div>
             <div class="col-md-6">
                 <strong style="color: #2fb56e">₹ {{l.price}}</strong>
                 <p>TYPE & LOCATION: {{l.property_type}}/{{l.location}}
@@ -74,5 +85,6 @@
     </div>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.11/jquery.lazy.min.js" integrity="sha512-eviLb3jW7+OaVLz5N3B5F0hpluwkLb8wTXHOTy0CyNaZM5IlShxX1nEbODak/C0k9UdsrWjqIBKOFY0ELCCArw==" crossorigin="anonymous"></script>
 {% endblock %}
 

@@ -2,12 +2,207 @@
 {% load static %}
 {% block content %}
 <div class="About" id="abt">
-    <div class="contact">
-      <form method="POST" action="" enctype="multipart/form-data">
+    <div class="addlistmain">
+      <h3 id="aboutheading"><span style="color: #ffffff;">Add</span> Properties</h3><br />
+      <p id = "ds" class="text-success"></p>
+      <form method="POST" action="" enctype="multipart/form-data" id="id_ajax_upload_form">
         {% csrf_token %}
-        {{form.as_p}}
+        <div>
+          <label for="id_action_type">Action type:</label> 
+          <select name="action_type" required="" id="id_action_type">
+            
+            <option value="ONSALE" selected>SELL</option>
+          
+            <option value="ONRENT">RENT</option>
+        
+          </select>
+        </div>
+
+        <div>
+          <label for="id_title">Title:</label> 
+          <input type="text" name="title" maxlength="200" required="" id="id_title">
+        </div>
+
+        <div>
+          <label for="id_property_type">Property type:</label> 
+          <select name="property_type" required="" id="id_property_type">
+            <option value="COMMERCIAL" selected>COMMERCIAL</option>
+            <option value="FURNISHED HOME">FURNISHED HOME</option>
+            <option value="LAND AND PLOT">LAND &amp; PLOT</option>
+            <option value="RENTAL">RENTAL</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="id_photo_main">Photo main:</label> 
+          <input type="file" name="photo_main" accept="image/*" required="" id="id_photo_main">
+        </div>
+
+        <div>
+          <label for="id_city">City:</label> 
+          <input type="text" name="city" maxlength="100" required="" id="id_city">
+        </div>
+
+        <div>
+          <label for="id_location">Location:</label> 
+          <input type="text" name="location" maxlength="200" required="" id="id_location">
+        </div>
+
+        <div>
+          <label for="id_address">Address:</label> 
+          <input type="text" name="address" maxlength="200" required="" id="id_address">
+        </div>
+
+        <div>
+          <label for="id_price">Price:</label> 
+          <input type="number" name="price" step="any" required="" id="id_price">
+        </div>
+
+        <div>
+          <label for="id_bedrooms">Bedrooms:</label>
+          <select name="bedrooms" required="" id="id_bedrooms">
+      
+            <option value="1" selected>1</option>
+          
+            <option value="2">2</option>
+          
+            <option value="3">3</option>
+          
+            <option value="4">4</option>
+          
+            <option value="5">5</option>
+          
+            <option value="6">6</option>
+          
+            <option value="7">7</option>
+        
+          </select>
+        </div>
+
+        <div>
+          <label for="id_bathrooms">Bathrooms:</label> 
+          <select name="bathrooms" required="" id="id_bathrooms">
+
+            <option value="1" selected>1</option>
+          
+            <option value="2">2</option>
+          
+            <option value="3">3</option>
+          
+            <option value="4">4</option>
+          
+            <option value="5">5</option>
+          
+            <option value="6">6</option>
+          
+            <option value="7">7</option>
+        
+        </select>
+      </div>
+
+        <div>
+          <label for="id_built_up_area">Built up area:</label> 
+          <input type="number" name="built_up_area" step="any" required="" id="id_built_up_area">
+        </div>
+
+        <div>
+          <label for="id_carpet_area">Carpet area:</label> 
+          <input type="number" name="carpet_area" step="any" required="" id="id_carpet_area">
+        </div>
+
+        <div>
+          <label for="id_unit">Unit:</label> 
+          <select name="unit" required="" id="id_unit">
+          
+            <option value="yards" selected>yards</option>
+          
+            <option value="cents">cents</option>
+          
+            <option value="acres">acres</option>
+        
+          </select>
+        </div>
+
+        <div>
+          <label for="id_transaction_type">Transaction type:</label> 
+          <select name="transaction_type" required="" id="id_transaction_type">
+          
+            <option value="Resale" selected>Resale</option>
+          
+            <option value="new">New Booking</option>
+        
+          </select>
+        </div>
+
+        <div>
+          <label for="id_property_floor">Property floor:</label> 
+          <select name="property_floor" required="" id="id_property_floor">
     
-      <input class="btn btn-success" type="submit" name="Add">
+            <option value="1" selected>1</option>
+          
+            <option value="2">2</option>
+          
+            <option value="3">3</option>
+          
+            <option value="4">4</option>
+          
+            <option value="5">5</option>
+          
+            <option value="6">6</option>
+          
+            <option value="7">7</option>
+        
+          </select>
+        </div>
+
+        <div>
+          <label for="id_ownership">Ownership:</label> 
+          <select name="ownership" required="" id="id_ownership">
+            
+            <option value="Individual" selected>Individual</option>
+          
+            <option value="Joint">Joint</option>
+        
+          </select>
+        </div>
+
+        <div>
+          <label for="id_total_floors">Total floors:</label> 
+          <select name="total_floors" required="" id="id_total_floors">
+ 
+            <option value="1" selected>1</option>
+          
+            <option value="2">2</option>
+          
+            <option value="3">3</option>
+          
+            <option value="4">4</option>
+          
+            <option value="5">5</option>
+          
+            <option value="6">6</option>
+          
+            <option value="7">7</option>
+        
+          </select>
+        </div>
+
+        <div>
+          <label for="id_availability">Availability:</label> 
+          <select name="availability" required="" id="id_availability">
+
+            <option value="ready" selected>Ready to move</option>
+            <option value="construction">Under construction</option>
+        
+          </select>
+        </div>
+        <div><label for="id_description">Description:</label> 
+          <textarea name="description" cols="40" rows="10" id="id_description">
+
+          </textarea>
+        </div>
+    
+        <input class="btn btn-success" type="submit" name="Add">
       </form>
     </div>
   </div>
@@ -22,7 +217,7 @@
         
         <input type="text" class="form-control" placeholder="Type Location/Keyword" aria-label="Recipient's username" aria-describedby="basic-addon2" style="background-color: white;">
         <div class="input-group-append">
-          <button class="btn btn-success" type="button">Search</button>
+          <button class="btn btn-success" type="button" id="subbt">Search</button>
         </div>
         </div>
     </form>
@@ -30,6 +225,26 @@
   </div>
 </div>
 <script type="text/js">
+  $('#id_ajax_upload_form').submit(function(e){
+    e.preventDefault();
+    $form = $(this)
+    var formData = new FormData(this);
+            $.ajax({
 
+                    method:'POST',
+                    url:'/addlisting',
+                    data:{
+                          'csrfmiddlewaretoken':'{{ csrf_token }}',
+                          data: formData,
+                  },
+                  cache: false,
+                  contentType: false,
+                  processData: false,                            
+
+          })
+
+
+          })          
+  });
 </script>
 {% endblock %}
