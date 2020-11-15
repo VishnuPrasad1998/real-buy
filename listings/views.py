@@ -118,4 +118,5 @@ def deleteListing(request, pk):
         return redirect('dashboard')
     context = {'item':listing}
     return render(request, 'listings/delete.html', context)
+
     
