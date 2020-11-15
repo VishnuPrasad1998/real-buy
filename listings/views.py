@@ -64,30 +64,34 @@ def search(request):
 def addlisting(request):
     user = request.user
     form = ListingModelForm()
-    if  request.method == 'POST':
-        action_type = request.POST['action_type']
-        title = request.POST['title']
-        property_type = request.POST['property_type']
-        photo_main = request.FILES['photo_main']
-        city = request.POST['city']
-        address = request.POST['address']
-        location = request.POST['location']
-        price = request.POST['price']
-        bedrooms = request.POST['bedrooms']
-        bathrooms = request.POST['bathrooms']
-        built_up_area = request.POST['built_up_area']
-        carpet_area = request.POST['carpet_area']
-        unit = request.POST['unit']
-        transaction_type = request.POST['transaction_type']
-        property_floor = request.POST['property_floor']
-        ownership = request.POST['ownership']
-        total_floors = request.POST['total_floors']
-        availability = request.POST['availability']
-        description = request.POST['description']
-        listing = Listing(action_type=action_type, title=title, user=user, property_type=property_type, photo_main=photo_main, city=city, address=address, location=location, price=price, bedrooms=bedrooms, bathrooms=bathrooms, built_up_area=built_up_area, unit=unit, transaction_type=transaction_type, property_floor=property_floor, ownership=ownership, total_floors=total_floors, availability=availability, description=description, carpet_area=carpet_area)
-        print(listing)
-        listing.save()
-        messages.success(request, 'Your property was added successfully!')
-        return redirect('dashboard' )
+    if request.method == 'POST':
+        form = ListingModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            action_type = request.POST['action_type']
+            title = request.POST['title']
+            property_type = request.POST['property_type']
+            photo_main = request.FILES['photo_main']
+            city = request.POST['city']
+            address = request.POST['address']
+            location = request.POST['location']
+            price = request.POST['price']
+            bedrooms = request.POST['bedrooms']
+            bathrooms = request.POST['bathrooms']
+            built_up_area = request.POST['built_up_area']
+            carpet_area = request.POST['carpet_area']
+            unit = request.POST['unit']
+            transaction_type = request.POST['transaction_type']
+            property_floor = request.POST['property_floor']
+            ownership = request.POST['ownership']
+            total_floors = request.POST['total_floors']
+            availability = request.POST['availability']
+            description = request.POST['description']
+            listing = Listing(action_type=action_type, title=title, user=user, property_type=property_type, photo_main=photo_main, city=city, address=address, location=location, price=price, bedrooms=bedrooms, bathrooms=bathrooms, built_up_area=built_up_area, unit=unit, transaction_type=transaction_type, property_floor=property_floor, ownership=ownership, total_floors=total_floors, availability=availability, description=description, carpet_area=carpet_area)
+            print(listing)
+            listing.save()
+            return JsonResponse({'error': False, 'message': 'Uploaded Successfully'})
+        else:        
+            return JsonResponse({'error': True, 'errors': form.errors})
+        
         # return redirect('dashboard')
     return render(request, "listings/addlisting.html", {"form": form})
