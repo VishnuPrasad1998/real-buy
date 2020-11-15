@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="About" id="abt">
+    <div class="profile">
+        <div class="container" id="editprof">
+        <h3 id="aboutheading"><span style="color: #ffffff;">Edit</span> Property</h3><br />   
+        <form method="POST" action="" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+        
+        <input class="btn btn-success" type="submit" name="Update Information">
+        </form>
+    </div>
+    </div>
+  </div>
+
+<div class="LHS">
+  <div class="Heading"><h2>Welcome to realbuy</h2></div>
+  <div class="Content"><p>Realbuy is a real estate firm with a vision to create luxurious living spaces that surpass the expectations of customers. Although recently launched the firm is driven with an instinct and far stretching insight that improves the real estate offerings in the city...</p></div>
+  <div class="search">
+    <div class="col-md-10">
+      <div class="col-md-10">
+        <form action="{% url 'searchdetails' %}" method="POST">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="keywords" placeholder="Type Location/Keyword/City" aria-label="Recipient's username" aria-describedby="basic-addon2" style="background-color: white;">
+        <div class="input-group-append">
+          <button class="btn btn-success" type="submit">Search</button>
+        </div>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

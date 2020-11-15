@@ -44,15 +44,17 @@
           </div>
         </div>
       </div>
-      {% endfor %}
-      {% endif %}
+      
     </div>
     <div class="container">
-    <div class="row" style="max-width: 105%; padding-right: 20px; padding-left: 20px; padding-top: 30px; font-size: 14px;">
-      <p>{{item.description}}</p>
-      <p style="font-size: 18px;"><span style="color: #2fb56e;">Seller info</span><br />First<br />world</p>
+    <div class="row" style="max-width: 100%; padding-right: 20px; padding-left: 20px; padding-top: 30px; font-size: 14px;">
+      <p>{{item.description}}</p><br/></div>
+    <div class="row" style="padding-right: 20px; padding-left: 20px; padding-top: 30px; font-size: 14px;">
+      <p style="font-size: 18px;"><span style="color: #2fb56e;">Seller info</span><br />{{item.user.first_name}}&nbsp;{{item.user.last_name}}<br />{{item.user.userprofile.address}}</p>
     </div>
     </div>
+    {% endfor %}
+    {% endif %}
     <div class="container" style="height: 40px; width: 95%; background-color: #232323; padding-left:10px; padding-right: 10px;">
     <div class="row" >
       <div class="col-md-2" style="top: 7px; left: 10px;"><img src="{% static 'img/Mail_white.png' %}" alt="" height="18px" width="18px"><small>SEND&nbsp;MAIL</small></div>

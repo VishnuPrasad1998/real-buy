@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Listing
-from .forms import ListingModelForm
+from .forms import ListingModelForm, ListingEditModelForm
 from django.core.paginator import EmptyPage, Paginator, PageNotAnInteger
 from .choices import price_choices, bedroom_choices
 from django.views.decorators.csrf import csrf_exempt
@@ -95,3 +95,27 @@ def addlisting(request):
         
         # return redirect('dashboard')
     return render(request, "listings/addlisting.html", {"form": form})
+
+@login_required(login_url='login')
+def editListing(request, pk):
+    listing = Listing.objects.get(id=int(pk))
+    print(listing)
+    form = ListingEditModelForm(instance=listing)
+    if request.method == 'POST':
+        form = ListingEditModelForm(request.POST, request.FILES, instance=listing)
+        if form.is_valid():
+            form.save()
+            return redirect('dashboard')
+    context = {'form':form}
+    return render(request, "listings/editlisting.html", context)
+
+@login_required(login_url='login')    
+def deleteListing(request, pk):
+    listing = Listing.objects.get(id=int(pk))
+    print(listing)
+    if request.method == "POST":
+        listing.delete()
+        return redirect('dashboard')
+    context = {'item':listing}
+    return render(request, 'listings/delete.html', context)
+    

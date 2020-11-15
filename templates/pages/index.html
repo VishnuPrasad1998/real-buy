@@ -94,7 +94,7 @@
       {% for listing in featured_listings %}
         <div class="col-sm-4">
             <div class="card" style="width: 14rem; height: 16rem;">
-                <img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px">
+              <a href="{% url 'listing' listing.id %}"><img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px"></a>
                 <div class="card-body">
                   <p class="card-text">
                   <small>{{listing.title}}</small><br />
@@ -119,7 +119,7 @@
           {% for listing in recent_listings %}
             <div class="col-sm-4">
                 <div class="card" style="width: 14rem; height: 14rem;">
-                    <img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px" loading="lazy">
+                  <a href="{% url 'listing' listing.id %}"><img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px" loading="lazy"></a>
                     <div class="card-body">
                     <Strong>{{listing.title}}</Strong><br />
                     <small>{{listing.location}}, {{listing.city}}</small><br />

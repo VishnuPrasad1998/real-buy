@@ -7,3 +7,9 @@ class ListingModelForm(forms.ModelForm):
         model = Listing
         fields = '__all__'
         exclude = ['user','posting_date']
+
+class ListingEditModelForm(forms.ModelForm):
+    class Meta:
+        model = Listing
+        fields = '__all__'
+        exclude = ['user','posting_date']

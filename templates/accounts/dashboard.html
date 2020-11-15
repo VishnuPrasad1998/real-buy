@@ -13,7 +13,7 @@
           <p><img src="{% static 'img/mail_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;{{user.email}}</p>
           <p><a href="{% url 'logout' %}">Logout</a> </p>
           
-            {% if messages %}
+            <!-- {% if messages %}
             {% for m in messages %}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
               {{m}}
@@ -22,7 +22,7 @@
               </button>
             </div>
             {% endfor %}
-            {% endif %}
+            {% endif %} -->
         </div>
         <div class="col-md-3" id="profadvanced">
           <p><img src="{% static 'img/phone_icon.png' %}" width="15px" height="15px">&nbsp;&nbsp;&nbsp;&nbsp;{{user.userprofile.phone}}</p>
@@ -52,8 +52,8 @@
                 <br />POSTED: {{l.posting_date}}</p>
               </div>
             <div class="col-md-2">
-              <img src="{% static 'img/edit1.png' %}" height="15px" width="15px">&nbsp;&nbsp;&nbsp;&nbsp;
-              <img src="{% static 'img/delete-button.png' %}" height="15px" width="15px">
+              <a href="{% url 'editlisting' l.id %}"><img src="{% static 'img/edit1.png' %}" height="15px" width="15px"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="{% url 'deletelisting' l.id %}"><img src="{% static 'img/delete-button.png' %}" height="15px" width="15px"></a>
             </div>
           </div>
       </div>

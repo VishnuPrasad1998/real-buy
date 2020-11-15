@@ -45,9 +45,11 @@ html {
     "descrip descrip descrip";
   grid-area: About;
   height: 100%;
+  width: auto;
   margin-top: -20px;
   background-color: black;
   overflow: scroll;
+  overflow-x: hidden;
 }
 .descrip { 
     grid-area: descrip; 
@@ -226,12 +228,13 @@ html {
   }
   .profile {
     background-color: #161616;
-    height: inherit;
+    height: auto;
     margin: 5px 5px;
   }
   .cardfeatured {
     background-color: #161616;
     border: 1px solid #232323;
+    width: 100%;
     margin-top: 13px;
     margin-left: 10px;
     margin-right: auto;
