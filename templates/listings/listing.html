@@ -2,6 +2,25 @@
 {% load static %}
 {% block content %}
 <div class="About" id="abt">
+  {% if messages %}
+      {% for message in messages %}
+        {% if "error" in message.tags %}
+         <div id="mgalert" class="container">
+            <div class="alert alert-danger alert-dismissible text-center" role="alert">
+              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+                {{message}}
+            </div>
+          </div>
+        {% else %}
+        <div id="msgalert" class="container">
+          <div class="alert alert-success alert-dismissible text-center" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+              {{message}}
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+  {% endif %}
   <div class="singlelisting">
     <div class="row">
       {% if listing %}
@@ -53,17 +72,18 @@
       <p style="font-size: 18px;"><span style="color: #2fb56e;">Seller info</span><br />{{item.user.first_name}}&nbsp;{{item.user.last_name}}<br />{{item.user.userprofile.address}}</p>
     </div>
     </div>
-    {% endfor %}
-    {% endif %}
+
     <div class="container" style="height: 40px; width: 95%; background-color: #232323; padding-left:10px; padding-right: 10px;">
     <div class="row" >
       <div class="col-md-2" style="top: 7px; left: 10px;"><img src="{% static 'img/Mail_white.png' %}" alt="" height="18px" width="18px"><small>SEND&nbsp;MAIL</small></div>
           <div class="col-2" style="top: 7px"><img src="{% static 'img/Call_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;PHONE</small></div>
-          <div class="col-md-2" style="top: 7px"><img src="{% static 'img/Fav_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;SHORTLIST</small></div>
+          <div class="col-md-2" style="top: 7px"><a data-toggle="modal" data-target="#inquiryModal"><img src="{% static 'img/Fav_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;SHORTLIST</small></a></div>
           <div class="col-md-2" style="top: 7px"><img src="{% static 'img/Map_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>MAP</small></div>
           <div class="col-md-2" style="top: 7px"><img src="{% static 'img/sharing_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>SHARE</small></div>
     </div>
   </div>
+  {% endfor %}
+  {% endif %}
   </div> 
 </div>
 
@@ -85,5 +105,59 @@
     </div>
   </div>
 </div>
+</div>
+
+{% if listing %}
+{% for item in listing %}
+<div class="modal fade" id="inquiryModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #000000; color: #ffffff;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'shortlist' %}" method="POST">
+          {% csrf_token %}
+          {% if user.is_authenticated %}
+            <input type="hidden" name="user_id" value="{{ user.id }}">
+          {% else %}
+          <input type="hidden" name="user_id" value="0">
+          {% endif %}
+          <input type="hidden" name="realtor_email" value="{{item.user.email}}">
+          <input type="hidden" name="client_email" value="{{user.email}}">
+          <input type="hidden" name="client_phone" value="{{user.userprofile.phone}}">
+          <input type="hidden" name="listing_id" value="{{item.id}}">
+
+          <div class="form-group">
+            <label for="property_name" class="col-form-label">Property:</label>
+            <input type="text" name="listing" class="form-control" value="{{ item.title }}">
+          </div>
+          <div class="form-group">
+            <label for="name" class="col-form-label">Name:</label>
+            <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value="{{user.first_name}} {{user.last_name}}" {% endif %} required>
+          </div>
+          <div class="form-group">
+            <label for="slot" class="col-form-label">Wanna Visit Tomorrow?</label>
+            <select name="slot" required="" id="id_slot" style="background-color: #161616; color: #FFFFFF;">     
+              <option value="FORENOON" selected>FORENOON</option>      
+              <option value="AFTERNOON">AFTERNOON</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message" class="col-form-label">Message:</label>
+            <textarea name="message" class="form-control" style="background-color: #161616; color: white;"></textarea>
+          </div>
+          <hr>
+          <input type="submit" value="Send" class="btn btn-block btn-secondary">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
 {% endblock %}
 

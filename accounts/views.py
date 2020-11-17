@@ -44,27 +44,30 @@ def registerPage(request):
         return render(request, 'accounts/register.html')
 
 def loginPage(request):
-    if request.method == 'POST':
+    if request.user.is_authenticated:
+        return redirect('dashboard')
+    else:
+        if request.method == 'POST':
 
-            email = request.POST.get('email')
-            password = request.POST.get('password')
-            print(email)
-            #To check whether user input is Mailid or Username
-            if(re.search("@gmail.com$", email)):
-                user_list = User.objects.filter(email=email)
-                print(user_list)
-                for val in user_list:
-                    user = authenticate(request, username=val.username, password=password)
-            else:
-                user = authenticate(request, username=email, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('dashboard')
-            else:
-                messages.info(request, 'Username OR password is incorrect')
+                email = request.POST.get('email')
+                password = request.POST.get('password')
+                print(email)
+                #To check whether user input is Mailid or Username
+                if(re.search("@gmail.com$", email)):
+                    user_list = User.objects.filter(email=email)
+                    print(user_list)
+                    for val in user_list:
+                        user = authenticate(request, username=val.username, password=password)
+                else:
+                    user = authenticate(request, username=email, password=password)
+                if user is not None:
+                    login(request, user)
+                    return redirect('dashboard')
+                else:
+                    messages.info(request, 'Username OR password is incorrect')
 
-    context = {}
-    return render(request, 'accounts/login.html', context)
+        context = {}
+        return render(request, 'accounts/login.html', context)
 
 def logoutUser(request):
     logout(request)
