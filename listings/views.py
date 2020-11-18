@@ -119,4 +119,8 @@ def deleteListing(request, pk):
     context = {'item':listing}
     return render(request, 'listings/delete.html', context)
 
+def mapshow(request, pk):
+    listing = Listing.objects.raw('SELECT * FROM listings_listing WHERE id = %d' % int(pk))
+    print(listing)
+    return render(request, 'listings/map.html', {'listing': listing})
     

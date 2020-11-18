@@ -1,11 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="utf-8" />
+<title>Add a marker using a place name</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+<style>
+	body { margin: 0; padding: 0; background-color: black;}
+	#map { position: absolute; top: 40px; left: 300px; width: 1000px; height: 600px; }
+</style>
 </head>
 <body>
-  
+<div id="map"></div>
+
+<script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js"></script>
+<script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
+{% for list in listing %}
+    
+<script>
+    let id = {{list.id}};
+	// TO MAKE THE MAP APPEAR YOU MUST
+	// ADD YOUR ACCESS TOKEN FROM
+	// https://account.mapbox.com
+	mapboxgl.accessToken = 'pk.eyJ1IjoidmlzaG51OTgiLCJhIjoiY2tobTZwcjA4Mmp3ZDJ0bDZvcHRtejhnYyJ9.z9srWFd-NNVdJBTWi0RRgQ';
+var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+fetch(`http://127.0.0.1:8000/api/listings/${id}`)
+	.then(res => res.json())
+	.then(data => {
+		mapboxClient.geocoding
+		.forwardGeocode({
+		query: data.city,
+		autocomplete: false,
+		limit: 1
+		})
+		.send()
+		.then(function (response) {
+		if (
+		response &&
+		response.body &&
+		response.body.features &&
+		response.body.features.length
+		) {
+		var feature = response.body.features[0];
+		 
+		var map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/mapbox/dark-v10',
+		center: feature.center,
+		zoom: 10
+		});
+		new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+		}
+		});
+	})
+	.catch(error => console.log('ERROR'))
+
+
+</script>
+{% endfor %}
 </body>
 </html>
