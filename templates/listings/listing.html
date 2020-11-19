@@ -79,7 +79,7 @@
           <div class="col-2" style="top: 7px"><a data-toggle="modal" data-target="#phoneModal"><img src="{% static 'img/Call_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;PHONE</small></a></div>
           <div class="col-md-2" style="top: 7px"><a data-toggle="modal" data-target="#inquiryModal"><img src="{% static 'img/Fav_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;SHORTLIST</small></a></div>
           <div class="col-md-2" style="top: 7px"><a href="{% url 'mapshow' item.id %}" style="color: white; text-decoration: none;"><img src="{% static 'img/Map_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>MAP</small></a></div>
-          <div class="col-md-2" style="top: 7px"><img src="{% static 'img/sharing_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>SHARE</small></a></div>
+          <div class="col-md-2" style="top: 7px"><a data-toggle="modal" data-target="#shareModal"><img src="{% static 'img/sharing_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>SHARE</small></a></div>
     </div>
   </div>
   {% endfor %}
@@ -198,6 +198,21 @@
       </div>
       <div class="modal-body">
         <h5 style="color: #2fb56e;">Mail the realtor :</h5> <h5>{{item.user.email}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="shareModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: #000000; color: #ffffff;">
+      <div class="modal-header" style="background-color: #161616; color: #ffffff;">
+        <h5 class="modal-title" id="inquiryModalLabel">Share</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" value="https://realbuy-demo.herokuapp.com/listings/{{item.id}}" size="50" />
       </div>
     </div>
   </div>
