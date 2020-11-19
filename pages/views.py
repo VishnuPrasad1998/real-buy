@@ -17,15 +17,17 @@ def index(request):
     return render(request, 'pages/index.html', context)
 
 def searchdetails(request):
-    queryset_list = Listing.objects.order_by('-price')
+    queryset_list = Listing.objects.order_by('-price').filter(action_type="ONSALE")
     paginator = Paginator(queryset_list, 4)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
     
     if request.method == 'POST':
        keywords = request.POST['keywords']
+       status = request.POST['options']
+       print(status)
        if keywords:
-            queryset_list = queryset_list.filter(city__icontains=keywords)|queryset_list.filter(title__icontains=keywords)|queryset_list.filter(description__icontains=keywords)|queryset_list.filter(location__icontains=keywords)
+            queryset_list = (queryset_list.filter(city__icontains=keywords)|queryset_list.filter(title__icontains=keywords)|queryset_list.filter(description__icontains=keywords)|queryset_list.filter(location__icontains=keywords))&(queryset_list.filter(action_type__icontains=status)|queryset_list.filter(availability__icontains=status))
             paginator = Paginator(queryset_list, 4)
             page = request.GET.get('page')
             paged_listings = paginator.get_page(page)

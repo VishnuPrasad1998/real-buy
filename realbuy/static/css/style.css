@@ -255,3 +255,12 @@ html {
   color: #7b7b7b;
   text-align: center;
 }
+.btn-secondary {
+  background-color: #69798e;
+}
+.btn-secondary:hover {
+  background-color: #273547;
+}
+.btn-secondary:checked{
+  background-color: #273547;
+}
