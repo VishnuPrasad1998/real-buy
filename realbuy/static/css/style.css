@@ -88,20 +88,19 @@ html {
 }
 .nav-link {
     font-size: 15px;
-    color: white; 
+    color:  #FFFFFF;
     text-decoration: none;           
     }
 .nav-link:hover {
-    color: black;   
-    background-color: #2fb56e; 
+    color:  #2fb56e;   
+    background-color: #000; 
     text-decoration: none;         
 }
-/* .active {
-  color: black;   
-    background-color: #2fb56e; 
-    text-decoration: none;  
-} */
-
+.nav-link:active {
+  color:  #2fb56e;   
+  background-color: #000; 
+  text-decoration: none;         
+}
 .Logo { 
     grid-area: Logo;
     position: absolute; }
@@ -268,4 +267,23 @@ html {
 }
 .pagination {
   background-color: none;
+}
+.overlayer {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #000000;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: black;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.container:hover .overlayer {
+  opacity: 1;
 }

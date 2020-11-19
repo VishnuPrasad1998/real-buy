@@ -1,6 +1,6 @@
 {% load static %}
 <div class="navbar">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent sticky-top" id="navbar-example2">
+  <nav class="navbar navbar-expand-lg bg-transparent sticky-top" id="navbar-example2">
       <div class="container">
       <a class="navbar-brand" href="index.html">
           <img src="assets/img/logo.png" class="logo" alt="">
@@ -25,7 +25,7 @@
           </li>
           <li
             {% if 'addlisting' in request.path %}
-              class="nav-item active mr-3" style="background-color: #2fb56e; text-decoration: none;"
+              class="nav-item active mr-3" style="background-color: #000000; color: #2fb56e; text-decoration: none;"
             {% else %}
               class="nav-item mr-3"
             {% endif %}
@@ -35,7 +35,8 @@
           </li>
           <li
             {% if 'contactus' in request.path %}
-              class="nav-item active mr-3" style="background-color: #2fb56e; text-decoration: none;"
+              class="nav-item active mr-3" style="background-color: #000 ; color:#2fb56e;   
+              text-decoration: none;"
             {% else %}
               class="nav-item mr-3"
             {% endif %}
