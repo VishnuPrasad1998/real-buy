@@ -39,8 +39,8 @@
       <img src="{% static 'img/Location_Aboutus.svg' %}" width="24px" height="30px" style="margin-left: 14px;">&nbsp;&nbsp;&nbsp;Address<br />
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>9A, 9th floor, Carnival Infopark, Kakkanad, Kochi - 682 030</small><br />
      <img src="{% static 'img/phone_Aboutus.svg' %}" width="25px" height="32px" style="margin-left: 14px;">&nbsp;&nbsp;&nbsp;Phone
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>0484-2415010</small><br />
-     <a href="{% url 'contactus' %}" class="btn btn-success" role="button" style="margin-left: 40px;">CONTACT NOW</a><br />
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>0484-2415010</small><br /><br />
+     <a href="{% url 'contactus' %}" class="btn btn-success" role="button" style="margin-left: 40px;">CONTACT NOW</a><br /><br />
      
   </div>
   <!-- Featured Properties -->
@@ -50,17 +50,17 @@
         <h3 id="aboutheading"><span style="color: #ffffff;">Featured </span>Properties</h3>
       </div>
       <div class="col">
-        <div class="row" style="margin-top: 10px;">
+        <div class="row" style="margin-top: 10px; margin-left: 60px;">
           <div class="col-md-12">
             {% if featured_listings.has_other_pages %}
               <ul class="pagination">
                 {% if featured_listings.has_previous %}
                   <li class="page-item">
-                    <a href="?page={{featured_listings.previous_page_number}}" class="page-link">&laquo;</a>
+                    <a href="?page={{featured_listings.previous_page_number}}" class="page-link" style="background-color: transparent; border: transparent;"><img src="{% static 'img/Prev_Arrow.svg' %}" width="15px" height="15px"></a>
                   </li>
                 {% else %}
                   <li class="page-item disabled">
-                    <a class="page-link"> &laquo;</a>
+                    <a class="page-link" style="background-color: transparent; border: transparent;"><img src="{% static 'img/Prev_Arrow.svg' %}" width="15px" height="15px"></a>
                   </li>
                 {% endif %}
                 {% for i in featured_listings.paginator.page_range %}
@@ -75,11 +75,11 @@
                 {% endfor %}
                 {% if featured_listings.has_next %}
                   <li class="page-item">
-                    <a href="?page={{featured_listings.next_page_number}}" class="page-link">&raquo;</a>
+                    <a href="?page={{featured_listings.next_page_number}}" class="page-link" style="background-color: transparent; border: transparent;"><img src="{% static 'img/Next_Arrow.svg' %}" width="15px" height="15px"></a>
                   </li>
                 {% else %}
                   <li class="page-item disabled">
-                    <a class="page-link">&raquo;</a>
+                    <a class="page-link" style="background-color: transparent; border: transparent;"><img src="{% static 'img/Next_Arrow.svg' %}" width="15px" height="15px"></a>
                   </li>
                 {% endif %}
               </ul>
@@ -155,7 +155,7 @@
       </label>
     </div>
     <div class="input-group mb-3">
-        <input type="text" class="form-control" name="keywords" placeholder="Type Location/Keyword/City" aria-label="Recipient's username" aria-describedby="basic-addon2" style="background-color: white;">
+        <input type="text" class="form-control" name="keywords" placeholder="Type Location/Keyword/City" aria-label="Recipient's username" aria-describedby="basic-addon2" style="background-color: white; color: black;">
         <div class="input-group-append">
           <button class="btn btn-success" type="submit">Search</button>
         </div>
