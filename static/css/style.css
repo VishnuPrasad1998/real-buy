@@ -45,16 +45,18 @@ html {
     "descrip descrip descrip";
   grid-area: About;
   height: 100%;
+  width: auto;
   margin-top: -20px;
   background-color: black;
   overflow: scroll;
+  overflow-x: hidden;
 }
 .descrip { 
     grid-area: descrip; 
     background-color: #161616;
-    height: 420px;
+    height: auto;
     margin-top: 8px;
-    margin-left: 7px;
+    margin-left: 6px; 
 }
 #featuredprops {
     background-color: #161616;
@@ -70,7 +72,7 @@ html {
     width: 100%;
     margin-top: 8px;
     max-width: auto;
-    margin-left: 7px;
+    margin-left: 7px; 
 }
 .imagcar { 
     grid-area: imagcar;
@@ -86,15 +88,19 @@ html {
 }
 .nav-link {
     font-size: 15px;
-    color: white; 
+    color:  #FFFFFF;
     text-decoration: none;           
     }
 .nav-link:hover {
-    color: black;   
-    background-color: #2fb56e; 
+    color:  #2fb56e;   
+    background-color: #000; 
     text-decoration: none;         
 }
-
+.nav-link:active {
+  color:  #2fb56e;   
+  background-color: #000; 
+  text-decoration: none;         
+}
 .Logo { 
     grid-area: Logo;
     position: absolute; }
@@ -172,7 +178,7 @@ html {
 }
 .contact {
     background-color: #161616;
-    height: inherit;
+    height: auto;
     margin: 5px 5px;
   }
   #contact-map {
@@ -221,12 +227,13 @@ html {
   }
   .profile {
     background-color: #161616;
-    height: inherit;
+    height: auto;
     margin: 5px 5px;
   }
- .cardfeatured {
+  .cardfeatured {
     background-color: #161616;
     border: 1px solid #232323;
+    width: 100%;
     margin-top: 13px;
     margin-left: 10px;
     margin-right: auto;
@@ -237,4 +244,27 @@ html {
   background-color: #161616;
   height: auto;
   margin: 5px 5px;
+}
+#editprof {
+  text-align: center;
+  margin: auto;
+}
+.addlistmain {
+  background-color: #161616; 
+  color: #7b7b7b;
+  text-align: center;
+}
+.btn-secondary {
+  background-color: #69798e;
+  border-radius: 0px;
+  border-color: #000000;
+}
+.btn-secondary:hover {
+  background-color: #273547;
+}
+.btn-secondary.active {
+  background-color: #273547;
+}
+.pagination {
+  background-color: none;
 }
