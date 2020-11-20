@@ -157,11 +157,31 @@
               <a href="{% url 'listing' listing.id %}"><img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px"></a>
                 <div class="card-body">
                   <p class="card-text">
-                  <small>{{listing.title}}</small><br />
-                  <strong style="color: #2fb56e;">₹{{listing.price}}</strong><br/>
-                  <img src="{% static 'img/Bed_small.svg' %}">&nbsp;&nbsp;&nbsp;Bed &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{listing.bedrooms}}<br />
-                  <img src="{% static 'img/bath_small.svg' %}">&nbsp;&nbsp;&nbsp;Bathroom &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{listing.bathrooms}}<br />
-                  <img src="{% static 'img/map_small.svg' %}">&nbsp;&nbsp;&nbsp;{{listing.city}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="static/img/favorites.svg" style="margin-left: 20px; position: absolute;">
+                    <div class="row">
+                      <small>{{listing.title}}</small>
+                    </div>
+                    <div class="row">
+                      <strong style="color: #2fb56e;">₹{{listing.price}}</strong>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-10">
+                        <img src="{% static 'img/Bed_small.svg' %}" style="margin-left: -14px;">&nbsp;&nbsp;&nbsp;Bed
+                      </div>
+                     <div class="col-md-2" style="margin-right: -10px;">{{listing.bedrooms}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-10">
+                        <img src="{% static 'img/bath_small.svg' %}" style="margin-left: -14px;">&nbsp;&nbsp;&nbsp;Bathroom
+                      </div>
+                     <div class="col-md-2" style="margin-right: -10px;">{{listing.bathrooms}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-10">
+                        <img src="{% static 'img/map_small.svg' %}" style="margin-left: -14px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{listing.city}}
+                      </div>
+                     <div class="col-md-2"><img src="{% static 'img/favorites.svg' %}" style="margin-left: -5px;"></div>
+                    </div>
                   </p>
                 </div>
               </div>
