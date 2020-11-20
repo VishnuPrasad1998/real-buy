@@ -7,7 +7,7 @@ from django.contrib import messages
 
 def contactus(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST or None)
+        form = ContactForm(request.POST)
         if form.is_valid():
             new_contact = Contactus(name=request.POST['name'], email=request.POST['email'], 
             phone=request.POST['phone'], message=request.POST['message'])

@@ -32,12 +32,20 @@
       {% if messages %}
       {% for message in messages %}
         {% if "error" in message.tags %}
-         <div id="mgalert" class="container">
-            <div class="alert alert-danger alert-dismissible text-center" role="alert">
-              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
-                {{form.non_field_errors}}
+        {% if form.non_field_errors %}
+        <div class="non-field-errors">
+          {% for err in form.non_field_errors %}
+            {% if "Form is Empty fill all fields" in err %}
+            <div id="msgalert" class="container">
+              <div class="alert alert-danger alert-dismissible text-center" role="alert">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
+                 Form is empty...
+              </div>
             </div>
-          </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
         {% else %}
         <div id="msgalert" class="container">
           <div class="alert alert-success alert-dismissible text-center" role="alert">
@@ -49,50 +57,97 @@
       {% endfor %}
       {% endif %}
       <form action="{% url 'contactus' %}" method="POST">
-      {% csrf_token %}
-      <div class="row">
-        <div class="col-md-4">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="col-sm-12">
-              <input class="form-control" type="text" placeholder="Name" name="name" required minlength="3" maxlength="20">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-sm-12">
+                  {{form.name}}
+                </div>
+                
+                  {% if form.non_field_errors %}
+                  <div class="non-field-errors">
+                    {% for err in form.non_field_errors %}
+                      {% if "Name must be minimum 3 characters and maximum 100 characters" in err %}
+                      <span id="nameerror" class="text-danger" style="margin-left: 20px;">Invalid name(Min 3 max 20)</span>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                
+              </div>
+            </div>
+  
+            <br />
+  
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-sm-12">
+                  {{form.email}}
+                </div>
+                {% if form.non_field_errors %}
+                  <div class="non-field-errors">
+                    {% for err in form.non_field_errors %}
+                      {% if "Invalid email address" in err %}
+                      <span id="nameerror" class="text-danger" style="margin-left: 20px;">Invalid email address</span>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+  
+            <br />
+  
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-sm-12">
+                  {{form.phone}}
+                </div>
+                {% if form.non_field_errors %}
+                  <div class="non-field-errors">
+                    {% for err in form.non_field_errors %}
+                      {% if "Ten digits mandatory" in err %}
+                      <span id="nameerror" class="text-danger" style="margin-left: 20px;">Enter valid phonenumber(10digit)</span>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
               </div>
             </div>
           </div>
-
-          <br />
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="col-sm-12">
-              <input class="form-control" type="email" placeholder="Email" name="email" required maxlength="30" style="background-color: #161616;">
-              </div>
-            </div>
+          <div class="col-md-4">
+            {{form.message}}
           </div>
-
-          <br />
-
-          <div class="row">
-            <div class="col-md-12">
-              <div class="col-sm-12">
-              <input class="form-control" type="text" placeholder="Phone" name="phone" required minlength="10" maxlength="10">
-              </div>
-            </div>
+          {% if form.non_field_errors %}
+                  <div class="non-field-errors">
+                    {% for err in form.non_field_errors %}
+                      {% if "In Description Enter minimum 4 characters and max 500 characters" in err %}
+                      <span id="nameerror" class="text-danger" style="margin-left: 20px;">Enter minimum 3 letters</span>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+          {% endif %}
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-success">SUBMIT</button>
           </div>
+         
         </div>
-        <div class="col-md-4">
-          <textarea class="form-control" rows="6" placeholder="Message" style="background-color: #161616; color: #8c8c8c; border: 2px solid #8c8c8c;" name="message" minlength="4" maxlength="500"></textarea>
-        </div>
-
-        <div class="col-md-4">
-          <button type="submit" class="btn btn-success">SUBMIT</button>
-        </div>
-
-      </div>
-    </form>
+        <!-- <div>
+          {% if form.non_field_errors %}
+            <div class="non-field-errors">
+              {% for err in form.non_field_errors %}
+                <p class="form-error">{{ err }}</p>
+              {% endfor %}
+            </div>
+          {% endif %}
+          </div> -->
+      </form>
+  
     </div>
   </div>
-
+</form>
 <div class="LHS">
   <div class="Heading"><h2>Welcome to realbuy</h2></div>
   <div class="Content"><p>Realbuy is a real estate firm with a vision to create luxurious living spaces that surpass the expectations of customers. Although recently launched the firm is driven with an instinct and far stretching insight that improves the real estate offerings in the city...</p></div>
