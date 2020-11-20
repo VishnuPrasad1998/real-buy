@@ -38,7 +38,7 @@
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			border-radius: 5px;
+			border-radius: 0px;
 
 		}
 
@@ -64,8 +64,9 @@
 		.input-group-text {
 			background: #f7ba5b !important;
 			color: white !important;
-			border: 0 !important;
-			border-radius: 0.25rem 0 0 0.25rem !important;
+			/* border: 0 !important;
+			border-radius: 0px; */
+			/* border-radius: 0.25rem 0 0 0.25rem !important; */
 		}
 		.input_user,
 		.input_pass:focus {
@@ -78,6 +79,24 @@
 			padding: 10px;
 			margin-top: 10px;
 		}
+		input[type=text] {
+		box-sizing: border-box;
+		border-radius: 0px;
+		outline: 0px;
+		box-shadow: none;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+		}
+		input[type=email] {
+		box-sizing: border-box;
+		border-radius: 0px;
+		outline: none;
+		}
+		input[type=password] {
+		box-sizing: border-box;
+		border-radius: 0px;
+		outline: none;
+		}
 	</style>
 
 </head>
@@ -85,7 +104,7 @@
 	<div class="container h-100" id="registerbg">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
-				<div class="d-flex justify-content-center">
+				<div class="d-flex justify-content-center" style="background-color: #2b2b2b;">
 					<h3 id="form-title">REGISTER ACCOUNT</h3>
 				</div>
 				<div class="d-flex justify-content-center form_container">
@@ -98,11 +117,11 @@
                   </div>
                 <div class="form-group">
                   <label for="last_name">Last Name</label>
-                  <input type="text" name="last_name" class="form-control" required>
+                  <input type="text" name="last_name" class="form-control" minlength="3" minlength="20" required>
                 </div>
                 <div class="form-group">
                   <label for="username">Username</label>
-                  <input type="text" name="username" class="form-control" required>
+                  <input type="text" name="username" class="form-control" minlength="3" minlength="20" required>
                 </div>
                 <div class="form-group">
                   <label for="email">Email</label>
@@ -110,13 +129,13 @@
                 </div>
                 <div class="form-group">
                   <label for="password2">Password</label>
-                  <input type="password" name="password1" class="form-control" required>
+                  <input type="password" name="password1" class="form-control" minlength="3" minlength="20" required>
                 </div>
                 <div class="form-group">
                   <label for="password">Confirm Password</label>
-                  <input type="password" name="password2" class="form-control" required>
+                  <input type="password" name="password2" class="form-control" minlength="3" minlength="20" required>
                 </div>
-                <input type="submit" value="Register" class="btn btn-success btn-block">
+                <input type="submit" value="Register" class="btn btn-success btn-block" style="border-radius: 0px;">
               </form>
                 </div>
                 

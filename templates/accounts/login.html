@@ -41,7 +41,7 @@
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 			-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-			border-radius: 5px;
+			border-radius: 0px;
 
 		}
 
@@ -51,9 +51,7 @@
 
 		#form-title{
 			color: #fff;
-			
 		}
-
 		.login_btn {
 			width: 100%;
 			background: #2fb56e !important;
@@ -69,26 +67,44 @@
 		.input-group-text {
 			background: #f7ba5b !important;
 			color: white !important;
-			border: 0 !important;
-			border-radius: 0.25rem 0 0 0.25rem !important;
+			/* border: 0 !important;
+			border-radius: 0px; */
+			/* border-radius: 0.25rem 0 0 0.25rem !important; */
 		}
 		.input_user,
 		.input_pass:focus {
 			box-shadow: none !important;
 			outline: 0px !important;
 		}
-
 		#messages{
 			background-color: rgb(255, 102, 102);
 			color: #fff;
 			padding: 10px;
 			margin-top: 10px;
 		}
+		input[type=text] {
+		box-sizing: border-box;
+		border-radius: 0px;
+		outline: 0px;
+		box-shadow: none;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+		}
+		input[type=email] {
+		box-sizing: border-box;
+		border-radius: 0px;
+		outline: none;
+		}
+		input[type=password] {
+		box-sizing: border-box;
+		border-radius: 0px;
+		outline: none;
+		}
 	</style>
 
 </head>
 <body>
-	<div class="navbar-listing">
+	<div class="navbar-listing" style="align-items: right;">
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent sticky-top" id="navbar-example2">
                 <div class="container">
                 <a class="navbar-brand" href="index.html">
@@ -120,7 +136,7 @@
                     <li class="nav-item mr-3">
                         <a class="nav-link" href="{% url 'contactus' %}">CONTACT&nbsp;US</a>
                     </li>
-                    <li class="nav-item mr-3" style="background-color: #2fb56e; text-decoration: none;">
+                    <li class="nav-item mr-3" style="color: #2fb56e; background-color:#000000; text-decoration: none;">
                         <a class="nav-link active" href="{% url 'login' %}">LOGIN</a>
                     </li>
                     </ul>
@@ -131,7 +147,7 @@
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
 			<div class="user_card">
-				<div class="d-flex justify-content-center">
+				<div class="d-flex justify-content-center" style="background-color: #2b2b2b;">
 
 
 					<h3 id="form-title">LOGIN</h3>
@@ -146,11 +162,11 @@
 								<input type="password" name="password" placeholder="Password..." class="form-control" required>
 						</div>
 						<div class="input-group mb-2">
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'reset_password' %}" class="ml-2">Forgot Password</a>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{% url 'reset_password' %}" class="ml-2" style="text-decoration: none; color: #FFFFFF;">Forgot Password?</a>
 						</div>
 
 							<div class="d-flex justify-content-center mt-3 login_container">
-				 				<input class="btn login_btn btn-success" type="submit" value="Login">
+				 				<input class="btn login_btn btn-success" type="submit" value="Login" style="border-radius: 0px;">
 				   			</div>
 					</form>
 
@@ -160,12 +176,14 @@
 				{% endfor %}
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+                        <a href="{% provider_login_url "google" %}"><img src="{% static 'img/g+.png' %}" height="25px" width="25px"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% provider_login_url "facebook" method="oauth2" %}"><img src="{% static 'img/fb.png' %}" height="25px" width="25px"></img></a>
 					</div>
+					<br />
 					<div class="d-flex justify-content-center links">
-                        <a href="{% provider_login_url "google" %}"><img src="{% static 'img/g+.png' %}"></img></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{% provider_login_url "facebook" method="oauth2" %}"><img src="{% static 'img/fb.png' %}"></img></a>
-                    </div>
+						Don’t have an account?  <a href="{% url 'register' %}" class="ml-2" style="text-decoration: none; color: #FFFFFF;">Create Account</a>
+					</div>
+					
 				</div>
 			</div>
 		</div>
