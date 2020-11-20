@@ -94,7 +94,7 @@
                 {% csrf_token %}
                   <div class="form-group">
                   <label for="first_name">First Name</label>
-                  <input type="text" name="first_name" class="form-control" required>
+                  <input type="text" name="first_name" class="form-control" minlength="3" minlength="20" required>
                   </div>
                 <div class="form-group">
                   <label for="last_name">Last Name</label>
