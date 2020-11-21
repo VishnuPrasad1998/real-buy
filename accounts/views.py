@@ -33,7 +33,7 @@ def registerPage(request):
                     UserProfile.objects.create(
                         user=user,
                     )
-                    messages.success(request, 'You are now registered and can log in')
+                    messages.success(request, 'Registered successfully...')
                     return redirect('login')
           
         else:
@@ -63,7 +63,7 @@ def loginPage(request):
                     login(request, user)
                     return redirect('dashboard')
                 else:
-                    messages.info(request, 'Username OR password is incorrect')
+                    messages.error(request, 'Username OR password is incorrect')
 
         context = {}
         return render(request, 'accounts/login.html', context)
