@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 import re
 
 def registerPage(request):
+    form = CreateUserForm(request.POST)
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
@@ -23,11 +24,9 @@ def registerPage(request):
       # Check username
             if User.objects.filter(username=username).exists():
                 messages.error(request, 'That username is taken')
-                return redirect('register')
             else:
                 if User.objects.filter(email=email).exists():
                     messages.error(request, 'That email is being used')
-                    return redirect('register')
                 else:
                     user = User.objects.create_user(first_name=first_name, username=username, password=password, email=email, last_name=last_name)
                     user.save()
@@ -39,9 +38,9 @@ def registerPage(request):
           
         else:
             messages.error(request, 'Passwords do not match')
-            return redirect('register')
     else:
-        return render(request, 'accounts/register.html')
+        form = CreateUserForm()
+    return render(request, 'accounts/register.html',{'form': form})
 
 def loginPage(request):
     if request.user.is_authenticated:
