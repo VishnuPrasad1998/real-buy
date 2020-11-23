@@ -268,3 +268,17 @@ html {
 .pagination {
   background-color: none;
 }
+.badge {
+  position: absolute;
+  bottom: 135px;
+  left: 130px;
+  padding: 3px 6px;
+  border-radius: 0px;
+}
+#recentbadge {
+  position: absolute;
+  bottom: 100px;
+  left: 130px;
+  padding: 3px 6px;
+  border-radius: 0px;
+}

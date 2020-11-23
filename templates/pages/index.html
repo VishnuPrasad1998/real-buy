@@ -156,6 +156,17 @@
         <div class="col-sm-4">
             <div class="card" style="width: 14rem; height: 16rem;">
               <a href="{% url 'listing' listing.id %}"><img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px"></a>
+              <div class="card-img-overlay">
+                {% if listing.action_type == "ONSALE" %}
+                <h4>
+                  <span class="badge badge-success text-white" style="background-color: #FF8C00;">{{listing.action_type}}</span>
+                </h4>
+                {% else %}
+                <h4>
+                  <span class="badge badge-primary text-white" style="background-color: #2fb56e;">{{listing.action_type}}</span>
+                </h4>
+                {% endif %}
+              </div>
                 <div class="card-body">
                   <p class="card-text">
                     <div class="row">
@@ -201,6 +212,17 @@
             <div class="col-sm-4">
                 <div class="card" style="width: 14rem; height: 14rem;">
                   <a href="{% url 'listing' listing.id %}"><img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px" loading="lazy"></a>
+                  <div class="card-img-overlay">
+                    {% if listing.action_type == "ONSALE" %}
+                    <h4>
+                      <span class="badge badge-success text-white" id="recentbadge" style="background-color: #FF8C00;">{{listing.action_type}}</span>
+                    </h4>
+                    {% else %}
+                    <h4>
+                      <span class="badge badge-primary text-white" id="recentbadge" style="background-color: #2fb56e;">{{listing.action_type}}</span>
+                    </h4>
+                    {% endif %}
+                  </div>
                     <div class="card-body">
                       <div class="row">
                         <Strong style="margin-left: 15px;">{{listing.title}}</Strong>
