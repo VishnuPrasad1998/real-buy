@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% block content %}
 <div class="About" id="abt">
   <div class="imagcar">
@@ -11,24 +12,24 @@
         </ol> -->
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="d-block w-100" src="{% static 'img/Banner_Slider.png' %}" height=280px width="100px" alt="First slide" id="im1">
+            <img class="d-block w-100" src="{% static 'img/home-5.jpg' %}" height=280px width="100px" alt="First slide" id="im1">
             <div class="carousel-caption d-none d-md-block" style="background-color: #000000; width: 100%; height: 70px; left: 0px; bottom: 0px; opacity: 0.9;">
               <div class="row">
-                <div class="col-md-2" style="left: 5px;">
-                  <img src="{% static 'img/Location_carousel.png' %}" width="25px" height="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DD Valley<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;40lakh
+                <div class="col-md-3" style="left: 5px;">
+                  <img src="{% static 'img/Location_carousel.png' %}" width="25px" height="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rupa Estates<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹ 90,0000
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                   
                 </div>
                 
                 <div class="col-md-4">
-                  <img src="{% static 'img/Area.png' %}" width="20px" height="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small">Area</small><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7,789 SQFT
+                  <img src="{% static 'img/Area.png' %}" width="20px" height="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small">Area</small><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120 Acres
                 </div>
                 <div class="col-md-2">
-                  <img src="{% static 'img/Bed.png' %}" width="20px" height="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>Bedrooms</small><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5
+                  <img src="{% static 'img/Bed.png' %}" width="20px" height="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>Bedrooms</small><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3
                 </div>
                 <div class="col-md-2">
-                  <img src="{% static 'img/bathroom.png' %}" width="20px" height="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>Bathroom</small><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6
+                  <img src="{% static 'img/bathroom.png' %}" width="20px" height="20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>Bathroom</small><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5
                 </div>
               </div>
             </div>
@@ -38,7 +39,7 @@
             <div class="carousel-caption d-none d-md-block" style="background-color: #000000; width: 100%; height: 70px; left: 0px; bottom: 0px; opacity: 0.9;">
               <div class="row">
                 <div class="col-md-2" style="left: 5px;">
-                  <img src="{% static 'img/Location_carousel.png' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manasam<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs 70K
+                  <img src="{% static 'img/Location_carousel.png' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manasam<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹ 70,0000
                 </div>
                 <div class="col-md-2">
                   
@@ -61,7 +62,7 @@
             <div class="carousel-caption d-none d-md-block" style="background-color: #000000; width: 100%; height: 70px; left: 0px; bottom: 0px; opacity: 0.9;">
               <div class="row">
                 <div class="col-md-2" style="left: 5px;">
-                  <img src="{% static 'img/Location_carousel.png' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ORA VILLAS<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rs 80K
+                  <img src="{% static 'img/Location_carousel.png' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ORA VILLAS<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹ 80,0000
                 </div>
                 <div class="col-md-2">
                   
@@ -161,7 +162,7 @@
                       <small>{{listing.title}}</small>
                     </div>
                     <div class="row">
-                      <strong style="color: #2fb56e;">₹{{listing.price}}</strong>
+                      <strong style="color: #2fb56e;">₹{{listing.price | intcomma}}</strong>
                     </div>
 
                     <div class="row">
@@ -209,7 +210,7 @@
                       </div>
                     <div class="row">
                       <div class="col-md-10">
-                        <span style="color: #2fb56e;">₹ {{listing.price}}</span>
+                        <span style="color: #2fb56e;">₹ {{listing.price | intcomma}}</span>
                       </div>
                      <div class="col-md-2"><img src="{% static 'img/favorites.svg' %}" style="margin-left: -5px;"></div>
                     </div>

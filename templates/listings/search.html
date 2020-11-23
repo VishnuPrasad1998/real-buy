@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -243,7 +244,7 @@
                 <div class="row">
                   <div class="col-md-4"><a href="{% url 'listing' listing.id %}"><img src="{{listing.photo_main.url}}" height="100px" width="190px"></a></div>
                   <div class="col-md-8">
-                    <strong style="color: #2fb56e">₹ {{listing.price}}</strong>
+                    <strong style="color: #2fb56e">₹ {{listing.price | intcomma}}</strong>
                     <p>TYPE & LOCATION: {{listing.property_type}}/{{listing.location}}
                     <br />PLOT AREA: {{listing.built_up_area}}&nbsp;{{listing.unit}}
                     <br />BEDROOMS: {{listing.bedrooms}}
