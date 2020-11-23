@@ -22,7 +22,9 @@ urlpatterns = [
     #URL Patterns for rest api's
     path('api/listings', include('listings.api.urls')),
     path('api/contactus', include('contactus.api.urls')),
+    path('api/accounts', include('accounts.api.urls')),
 
+    
 
     path('', include('pages.urls')),
     path('listings/', include('listings.urls')),

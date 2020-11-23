@@ -76,6 +76,7 @@ def logoutUser(request):
 @login_required(login_url='login')
 def dashboard(request):
     user = request.user
+    print(user.id)
     listing_details = Listing.objects.filter(user__username__contains=user)
     context = {
         'listing_details': listing_details
