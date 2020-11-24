@@ -3,8 +3,10 @@ from django.http import HttpResponse
 from listings.models import Listing
 from listings.choices import price_choices, bedroom_choices
 from django.core.paginator import EmptyPage, Paginator, PageNotAnInteger
+from shortlist.models import Shortlist
 # Create your views here.
 def index(request):
+    shortlisted = Shortlist.objects.all()
     featured_listings = Listing.objects.raw('SELECT * FROM listings_listing ORDER BY price DESC')
     recent_listings = Listing.objects.raw('SELECT * FROM listings_listing ORDER BY posting_date DESC LIMIT 9')
     paginator = Paginator(featured_listings, 5)
@@ -12,7 +14,8 @@ def index(request):
     paged_listings = paginator.get_page(page)
     context = {
         'recent_listings': recent_listings,
-        'featured_listings': paged_listings
+        'featured_listings': paged_listings,
+        'shortlisted': shortlisted
     }
     return render(request, 'pages/index.html', context)
 
