@@ -242,7 +242,7 @@ html {
 }
 .singlelisting {
   background-color: #161616;
-  height: auto;
+  height: inherit;
   margin: 5px 5px;
 }
 #editprof {

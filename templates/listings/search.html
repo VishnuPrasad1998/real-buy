@@ -249,7 +249,8 @@
             <div class="col-md-6">
               <div class="cardfeatured" style="width: auto; height: auto;">
                 <div class="row">
-                  <div class="col-md-4"><a href="{% url 'listing' listing.id %}"><img src="{{listing.photo_main.url}}" height="100px" width="190px"></a></div>
+                  <a href="{% url 'listing' listing.id %}">
+                  <div class="col-md-4"><img src="{{listing.photo_main.url}}" height="100px" width="190px"></div>
                   <div class="card-img-overlay">
                     {% if listing.action_type == "ONSALE" %}
                     <h4>
@@ -261,6 +262,7 @@
                     </h4>
                     {% endif %}
                   </div>
+                </a>
                   <div class="col-md-8">
                     <strong style="color: #2fb56e">₹ {{listing.price | intcomma}}</strong>
                     <p>TYPE & LOCATION: {{listing.property_type}}/{{listing.location}}
@@ -270,11 +272,11 @@
                   </div>
                 </div>
                 <div class="row" style="background-color:#232323">
-                  <div class="col-md-2"><img src="{% static 'img/Mail_white.png' %}" alt="" height="18px" width="18px"><small>SEND&nbsp;MAIL</small></div>
-                  <div class="col-2"><img src="{% static 'img/Call_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;PHONE</small></div>
-                  <div class="col-md-2"><img src="{% static 'img/Fav_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;SHORTLIST</small></div>
-                  <div class="col-md-2"><img src="{% static 'img/Map_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>MAP</small></div>
-                  <div class="col-md-2"><img src="{% static 'img/sharing_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>SHARE</small></div>
+                  <div class="col-md-2"><a href="{% url 'listing' listing.id %}" style="color: white; text-decoration: none;"><img src="{% static 'img/Mail_white.png' %}" alt="" height="18px" width="18px"><small>SEND&nbsp;MAIL</small></a></div>
+                  <div class="col-2"><a href="{% url 'listing' listing.id %}" style="color: white; text-decoration: none;"><img src="{% static 'img/Call_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;PHONE</small></a></div>
+                  <div class="col-md-2"><a href="{% url 'listing' listing.id %}" style="color: white; text-decoration: none;"><img src="{% static 'img/Fav_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;SHORTLIST</small></a></div>
+                  <div class="col-md-2"><a href="{% url 'listing' listing.id %}" style="color: white; text-decoration: none;"><img src="{% static 'img/Map_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>MAP</small></a></div>
+                  <div class="col-md-2"><a href="{% url 'listing' listing.id %}" style="color: white; text-decoration: none;"><img src="{% static 'img/sharing_white.png' %}" alt="" height="18px" width="18px">&nbsp;&nbsp;<small>SHARE</small></a></div>
                 </div>
             </div>
           </div>
@@ -288,4 +290,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>
