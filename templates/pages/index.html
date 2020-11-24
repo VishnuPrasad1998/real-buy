@@ -153,9 +153,10 @@
     <div class="row">
       {% if featured_listings %}
       {% for listing in featured_listings %}
+      <a href="{% url 'listing' listing.id %}">
         <div class="col-sm-4">
             <div class="card" style="width: 14rem; height: 16rem;">
-              <a href="{% url 'listing' listing.id %}"><img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px"></a>
+              <img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px">
               <div class="card-img-overlay">
                 {% if listing.action_type == "ONSALE" %}
                 <h4>
@@ -167,6 +168,7 @@
                 </h4>
                 {% endif %}
               </div>
+            </a>
                 <div class="card-body">
                   <p class="card-text">
                     <div class="row">
@@ -209,9 +211,11 @@
         <div class="row">
           {% if recent_listings %}
           {% for listing in recent_listings %}
+            
             <div class="col-sm-4">
+              <a href="{% url 'listing' listing.id %}">
                 <div class="card" style="width: 14rem; height: 14rem;">
-                  <a href="{% url 'listing' listing.id %}"><img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px" loading="lazy"></a>
+                  <img class="card-img-top" src="{{listing.photo_main.url}}" alt="Card image cap" width="100px" height="100px" loading="lazy">
                   <div class="card-img-overlay">
                     {% if listing.action_type == "ONSALE" %}
                     <h4>
@@ -222,7 +226,9 @@
                       <span class="badge badge-primary text-white" id="recentbadge" style="background-color: #2fb56e;">{{listing.action_type}}</span>
                     </h4>
                     {% endif %}
+                  
                   </div>
+                </a>
                     <div class="card-body">
                       <div class="row">
                         <Strong style="margin-left: 15px;">{{listing.title}}</Strong>

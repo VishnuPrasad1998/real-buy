@@ -8,11 +8,18 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http.response import JsonResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from shortlist.models import Shortlist
 # Create your views here.
 
 def listing(request, listing_id):
+    shortlisted = Shortlist.objects.raw('SELECT * FROM shortlist_shortlist WHERE listing_id = %d' % listing_id)
     listing = Listing.objects.raw('SELECT * FROM listings_listing WHERE id = %d' % listing_id)
-    return render(request, 'listings/listing.html', {'listing': listing})
+    print(shortlisted)
+    context = {
+        'listing': listing,
+        'shortlisted': shortlisted
+    }
+    return render(request, 'listings/listing.html', context)
 
 @csrf_exempt
 def search(request):
