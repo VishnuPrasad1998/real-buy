@@ -19,3 +19,4 @@ django-filter==2.4.0
 django-allauth
 django-cors-headers
 django-humanize
+django-resized
