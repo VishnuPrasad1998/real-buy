@@ -16,21 +16,22 @@
     <div class="grid-container" id="contentmain">
         <div class="About" id="abt">
           <div class="contact">
-            <h3 id="aboutheading"><span style="color: #ffffff;">ADD </span>PROPERTY</h3><br />
+            <h3 id="aboutheading" style="text-align: center;"><span style="color: #ffffff;">ADD </span>PROPERTY</h3><br />
             <form 
             enctype="multipart/form-data"
             id="id_ajax_upload_form" method="POST"
             novalidate="">
               {% csrf_token %}
-              <div>
+              <div style="padding: 20px 20px;">
+                <div class="blockbackground">I want to</div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="action_type" value="ONSALE" checked>SELL
+                    <input type="radio" class="form-check-input" name="action_type" value="ONSALE" checked style="margin-left: 25px; margin-top: 10px;">SELL
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="action_type" value="ONRENT">RENT
+                    <input type="radio" class="form-check-input" name="action_type" value="ONRENT" style="margin-left: 50px;">RENT
                   </label>
                 </div>
               </div>
@@ -44,15 +45,17 @@
                 </select> -->
               
 
-              <div>
-                <label for="id_title">Title:</label> 
-                <input type="text" name="title" maxlength="200" required="" id="id_title" minlength="8">
+                <div style="padding: 20px 20px;">
+                <div class="blockbackground">Property Title</div>
+                <label for="id_title" style="margin-left: 25px;"></label> 
+                <input type="text" placeholder="Title" name="title" maxlength="200" required="" id="id_title" minlength="8" style="margin-left: -6px; margin-top: 10px; height: 40px; width: 200px;" >
                 <span id="nameerror" class="text-danger font-weight-bold"></span>
-              </div>
+                </div>
 
-              <div>
-                <label for="id_property_type">Property type:</label> 
-                <select name="property_type" required="" id="id_property_type" style="background-color: #161616; color: #FFFFFF;">
+              <div style="padding: 20px 20px;">
+                <div class="blockbackground">Property Type</div>
+                <label for="id_property_type"></label> 
+                <select name="property_type" required="" id="id_property_type" style="background-color: #161616; color: #FFFFFF; margin-top: 10px; margin-left: 18px; width: 200px; height: 40px;">
                   <option value="COMMERCIAL" selected>COMMERCIAL</option>
                   <option value="FURNISHED HOME">FURNISHED HOME</option>
                   <option value="LAND AND PLOT">LAND &amp; PLOT</option>
@@ -60,57 +63,65 @@
                 </select>
               </div>
 
-              <div>
-                <label for="id_photo_main">Photo main:</label> 
-                <input type="file" name="photo_main" accept="image/*" required="" id="id_photo_main">
+              <div style="padding: 20px 20px;">
+                <div class="blockbackground">Add Your Property Photo</div> 
+                <input type="file" name="photo_main" accept="image/*" required="" id="id_photo_main" style="margin-left: 20px; margin-top: 10px;">
               </div>
 
-              <div>
-                <label for="id_city">City:</label> 
-                <input type="text" name="city" maxlength="100" required="" id="id_city">
+              <div style="padding: 20px 20px;">
+              <div class="blockbackground">Add Your Property Address</div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="id_city"></label> 
+                  <input type="text" name="city" placeholder="Enter City" maxlength="100" required="" id="id_city" style="margin-left: 18px; margin-top: 10px; height: 40px; width: 200px;">
+                </div>
+                <div class="col-md-6">
+                  <label for="id_address"></label> 
+                  <input type="text" name="address" placeholder="Enter Address" maxlength="200" required="" id="id_address" style="margin-top: 10px; height: 40px; width: 200px;">
+                </div>
               </div>
-
-              <div>
-                <label for="id_location">Location:</label> 
-                <input type="text" name="location" maxlength="200" required="" id="id_location">
+              <div class="row">
+              <div class="col-md-6">
+                <label for="id_location"></label> 
+                <input type="text" name="location" placeholder="Enter Location"  maxlength="200" required="" id="id_location" style="margin-left: 18px; margin-top: 10px; height: 40px; width: 200px;">
               </div>
+            </div>
+                            
+            </div>
 
-              <div>
-                <label for="id_address">Address:</label> 
-                <input type="text" name="address" maxlength="200" required="" id="id_address">
+            <div style="padding: 20px 20px;">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="id_price"></label> 
+                  <input type="number" placeholder="Price" name="price" step="any" required="" id="id_price" style="background-color: #161616; color: #FFFFFF; margin-top: 10px; margin-left: 18px; width: 200px; height: 40px;">
+                </div>
+                <div class="col-md-6">
+                  <label for="id_bedrooms"></label>
+                  <select name="bedrooms" required="" id="id_bedrooms" style="background-color: #161616; color: #7b7b7b; margin-top: 10px; margin-left: 18px; width: 200px; height: 40px;">
+                    <option value="" selected style="color: #FFFFFF;">Bedrooms</option>
+                    <option value="1">1</option>
+                  
+                    <option value="2">2</option>
+                  
+                    <option value="3">3</option>
+                  
+                    <option value="4">4</option>
+                  
+                    <option value="5">5</option>
+                  
+                    <option value="6">6</option>
+                  
+                    <option value="7">7</option>
+                
+                  </select>
+                </div>
               </div>
-
-              <div>
-                <label for="id_price">Price:</label> 
-                <input type="number" name="price" step="any" required="" id="id_price" style="background-color: #161616; color: #FFFFFF;">
-              </div>
-
-              <div>
-                <label for="id_bedrooms">Bedrooms:</label>
-                <select name="bedrooms" required="" id="id_bedrooms" style="background-color: #161616; color: #FFFFFF;">
-            
-                  <option value="1" selected>1</option>
-                
-                  <option value="2">2</option>
-                
-                  <option value="3">3</option>
-                
-                  <option value="4">4</option>
-                
-                  <option value="5">5</option>
-                
-                  <option value="6">6</option>
-                
-                  <option value="7">7</option>
-              
-                </select>
-              </div>
-
-              <div>
-                <label for="id_bathrooms">Bathrooms:</label> 
-                <select name="bathrooms" required="" id="id_bathrooms" style="background-color: #161616; color: #FFFFFF;">
-
-                  <option value="1" selected>1</option>
+              <div class="row">
+              <div class="col-md-6">
+                <label for="id_bathrooms"></label> 
+                <select name="bathrooms" required="" id="id_bathrooms" style="background-color: #161616; color: #7b7b7b; margin-top: 10px; margin-left: 18px; width: 200px; height: 40px;">
+                  <option value="" selected style="color: #7b7b7b;">Bathrooms</option>
+                  <option value="1">1</option>
                 
                   <option value="2">2</option>
                 
@@ -126,21 +137,19 @@
               
               </select>
             </div>
-
-              <div>
-                <label for="id_built_up_area">Built up area:</label> 
-                <input type="number" name="built_up_area" step="any" required="" id="id_built_up_area" style="background-color: #161616; color: #FFFFFF;">
+          </div>
+          </div>
+              <div style="padding: 20px 20px;">
+                <div class="row">
+              <div class="col-md-6">
+                <label for="id_built_up_area"></label> 
+                <input type="number" name="built_up_area" placeholder="Built up Area" step="any" required="" id="id_built_up_area" style="background-color: #161616; color: #FFFFFF; margin-top: 10px; margin-left: 18px; width: 200px; height: 40px;">
               </div>
-
-              <div>
-                <label for="id_carpet_area">Carpet area:</label> 
-                <input type="number" name="carpet_area" step="any" required="" id="id_carpet_area" style="background-color: #161616; color: #FFFFFF;">
-              </div>
-
-              <div>
-                <label for="id_unit">Unit:</label> 
-                <select name="unit" required="" id="id_unit" style="background-color: #161616; color: #FFFFFF;">
-                
+              <div class="col-md-6">
+                <label for="id_unit"></label> 
+                <select name="unit" required="" id="id_unit" style="background-color: #161616; color: #7b7b7b; margin-top: 10px; margin-left: 18px; width: 200px; height: 40px;">
+                  
+                  <option value="" selected>Unit</option>
                   <option value="yards" selected>yards</option>
                 
                   <option value="cents">cents</option>
@@ -149,7 +158,15 @@
               
                 </select>
               </div>
-
+              
+            </div>
+            <div class="row">
+            <div class="col-md-6">
+              <label for="id_carpet_area"></label> 
+              <input type="number" name="carpet_area"  placeholder="Carpet area" step="any" required="" id="id_carpet_area" style="background-color: #161616; color: #FFFFFF; margin-top: 10px; margin-left: 18px; width: 200px; height: 40px;">
+            </div>
+          </div>
+            </div>
               <!-- <div>
                 <label for="id_transaction_type">Transaction type:</label> 
                 <select name="transaction_type" required="" id="id_transaction_type" style="background-color: #161616; color: #FFFFFF;">
@@ -160,24 +177,27 @@
               
                 </select>
               </div> -->
-              <div>
+              <div style="padding: 20px 20px;">
+                <div class="blockbackground">Transaction Type</div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="transaction_type" value="Resale" checked>Resale
+                    <input type="radio" class="form-check-input" name="transaction_type" value="Resale" checked  style="margin-left: 25px; margin-top: 10px;">Resale
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="transaction_type" value="new">New Booking
+                    <input type="radio" class="form-check-input" name="transaction_type" value="new"  style="margin-left: 50px; margin-top: 10px;">New Booking
                   </label>
                 </div>
-              </div>
+              
 
-              <div>
-                <label for="id_property_floor">Property floor:</label> 
-                <select name="property_floor" required="" id="id_property_floor" style="background-color: #161616; color: #FFFFFF;">
-          
-                  <option value="1" selected>1</option>
+              <div class="row">
+              <div class="col-md-6">
+                <label for="id_property_floor"></label> 
+                <select name="property_floor" required="" id="id_property_floor" style="background-color: #161616; color: #7b7b7b; margin-top: 10px; margin-left: 18px; width: 200px; height: 40px;">
+                  
+                  <option value="" selected>Property Floors</option>
+                  <option value="1">1</option>
                 
                   <option value="2">2</option>
                 
@@ -194,22 +214,26 @@
                 </select>
               </div>
 
-              <div>
-                <label for="id_ownership">Ownership:</label> 
-                <select name="ownership" required="" id="id_ownership" style="background-color: #161616; color: #FFFFFF;">
+              <div class="col-md-6">
+                <label for="id_ownership"></label> 
+                <select name="ownership" required="" id="id_ownership" style="background-color: #161616; color: #7b7b7b; margin-top: 10px; margin-left: 18px; width: 200px; height: 40px;">
                   
+                  <option value="" selected>Ownership</option>
                   <option value="Individual" selected>Individual</option>
                 
                   <option value="Joint">Joint</option>
               
                 </select>
               </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="id_total_floors"></label> 
+                <select name="total_floors" required="" id="id_total_floors" style="background-color: #161616; color: #7b7b7b; margin-top: 10px; margin-left: 18px; width: 200px; height: 40px;">
 
-              <div>
-                <label for="id_total_floors">Total floors:</label> 
-                <select name="total_floors" required="" id="id_total_floors" style="background-color: #161616; color: #FFFFFF;">
+                  <option value="" selected>Total floors</option>
 
-                  <option value="1" selected>1</option>
+                  <option value="1">1</option>
                 
                   <option value="2">2</option>
                 
@@ -225,15 +249,18 @@
               
                 </select>
               </div>
-              <div>
+            </div>
+          </div>
+          <div style="padding: 20px 20px;">
+            <div class="blockbackground">Availability</div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="availability" value="ready" checked>Ready to move
+                    <input type="radio" class="form-check-input" name="availability" value="ready" checked style="margin-left: 25px; margin-top: 10px;">Ready to move
                   </label>
                 </div>
                 <div class="form-check-inline">
                   <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="availability" value="construction">Under construction
+                    <input type="radio" class="form-check-input" name="availability" value="construction" style="margin-left: 50px; margin-top: 10px;">Under construction
                   </label>
                 </div>
               </div>
@@ -246,12 +273,15 @@
               
                 </select>
               </div> -->
-              <div><label for="id_description">Description:</label> 
-                <textarea name="description" cols="40" rows="10" id="id_description">
-
+              <div style="padding: 20px 20px;">
+                <label for="id_description"></label> 
+                <textarea name="description" cols="40" rows="5" id="id_description" style="color: #7b7b7b; margin-top: 10px; margin-left: 20px;">
+                  
                 </textarea>
               </div>
-              <button class="btn btn-success" type="submit">Submit</button>
+              <div style="padding: 20px 20px;">
+              <button class="btn btn-success" type="submit" style="margin-left: 20px; border-radius: 0px;">Post Ad</button><br /><br />
+              </div>
           </form>
           </div>
         </div>

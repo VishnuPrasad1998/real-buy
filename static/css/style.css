@@ -282,3 +282,12 @@ html {
   padding: 3px 6px;
   border-radius: 0px;
 }
+.blockbackground {
+		    background-color: rgb(253, 0, 0);
+		    /* text-transform: uppercase; */
+		    padding-left: 10px;
+		    padding-top: 5px;
+		    padding-bottom: 5px;
+		    padding-right: 0px;
+		    margin-bottom: 10px;
+		}
