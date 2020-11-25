@@ -60,7 +60,7 @@ html {
 }
 #featuredprops {
     background-color: #161616;
-    height: 620px;
+    height: auto;
     width: 100%;
     margin-top: 8px;
     max-width: auto;
@@ -242,7 +242,7 @@ html {
 }
 .singlelisting {
   background-color: #161616;
-  height: auto;
+  height: inherit;
   margin: 5px 5px;
 }
 #editprof {
@@ -292,3 +292,63 @@ html {
   padding-top: 2px;
   padding-bottom: 2px;
 } 
+.addproperty-nav {
+  align-items: center;
+}
+
+.addproperty-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.addproperty-nav ul li {
+  margin-right: 20px;
+}
+
+.addproperty-nav ul li a {
+  list-style: none;
+  text-decoration: none;
+  margin-left: 10px;
+  color: rgba(255, 255, 255, 1);
+  text-transform: uppercase;
+}
+
+.addproperty-nav ul li a:hover {
+  background-color: black;
+  color: rgba(47, 181, 110, 1);
+  text-decoration: underline;
+  margin-bottom: 4px;
+}
+
+.addproperty-nav ul li input[type=button] {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 1);
+  text-transform: uppercase;
+}
+#Div2 {
+  display: none;
+}
+.addproperty-nav ul li input[type=button]:hover {
+  background-color: black;
+  color: rgba(47, 181, 110, 1);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.next {
+  text-align: center;
+  text-decoration: none;
+  list-style: none;
+}
+.next input[type="button"] {
+  background: transparent;
+  border: none;
+  height: 17px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+}
