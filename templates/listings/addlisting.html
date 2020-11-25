@@ -15,8 +15,14 @@
 <body>
     <div class="grid-container" id="contentmain">
         <div class="About" id="abt">
-          <div class="contact">
+          <div class="contact" id="Div1">
             <h3 id="aboutheading" style="text-align: center;"><span style="color: #ffffff;">ADD </span>PROPERTY</h3><br />
+            <nav class="addproperty-nav">
+              <ul>
+                  <li><a href="" id="basic" style="color: #2ca665; background-color: #000000;">Basic information</a></li>
+                  <li><input type="button" value="Property details" name="propertysubmit" id="next1"></li>
+              </ul>
+          </nav>
             <form 
             enctype="multipart/form-data"
             id="id_ajax_upload_form" method="POST"
@@ -88,7 +94,17 @@
             </div>
                             
             </div>
+            <div class="next" ><input type="button" value="Next" name="basicsubmit" id="next"></div>
+          </div>
 
+          <div class="contact" id="Div2">
+            <h3 id="aboutheading" style="text-align: center;"><span style="color: #ffffff;">ADD </span>PROPERTY</h3><br />
+            <nav class="addproperty-nav">
+              <ul>
+                  <li><a href="" id="basic1">Basic information</a></li>
+                  <li><input type="button" value="Property details" name="propertysubmit" id="property1"></li>
+              </ul>
+          </nav>
             <div style="padding: 20px 20px;">
               <div class="row">
                 <div class="col-md-6">
@@ -365,6 +381,7 @@
                         <button class="btn btn-success" type="submit">Search</button>
                       </div>
                       </div>
+                      
                   </form>
             </div>
           </div>
@@ -384,6 +401,49 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
        <script type="text/javascript">
+
+		var first_link = document.getElementById("basic");
+		var second_link = document.getElementById("property");
+		var next = document.getElementById("next");
+		// var next1 = document.getelementById("next1");
+		// var next1 = document.getElementById("adsubmit");
+		var first_link1 = document.getElementById("basic1");
+		var second_link1 = document.getElementById("property1");
+
+		var first_link_property = document.getElementById("Div1");
+		var second_link_property = document.getElementById("Div2");
+
+		next.onclick = function() {
+		    second_link_property.style.display = "block";
+		    first_link_property.style.display = "none";
+
+		}
+		next1.onclick = function() {
+		    second_link_property.style.display = "block";
+		    first_link_property.style.display = "none";
+
+		}
+
+		first_link.onclick = function() {
+		    first_link_property.style.display = "block";
+		    second_link_property.style.display = "none";
+
+		}
+		first_link1.onclick = function() {
+		    first_link_property.style.display = "block";
+		    second_link_property.style.display = "none";
+
+		}
+
+		// second_link.onclick = function() {
+		//     second_link_property.style.display = "block";
+		//     first_link_property.style.display = "none";
+		// }
+		second_link1.onclick = function() {
+		    second_link_property.style.display = "block";
+		    first_link_property.style.display = "none";
+}
+
     // form upload
     $('#id_ajax_upload_form').submit(function(e){
         e.preventDefault();
@@ -393,11 +453,12 @@
             url: window.location.pathname,
             type: 'POST',
             data: formData,
-            success: function (response) {
+            success: function(response) {
                 $('.error').remove();
-                console.log(response)
+                console.log(response);
                 if(response.error){
                     $.each(response.errors, function(name, error){
+                        alert(name + " field is required");
                         error = '<small class="text-muted error">' + error + '</small>'
                         $form.find('[name=' + name + ']').after(error);
                     })
