@@ -96,7 +96,7 @@ def addlisting(request):
             listing = Listing(action_type=action_type, title=title, user=user, property_type=property_type, photo_main=photo_main, city=city, address=address, location=location, price=price, bedrooms=bedrooms, bathrooms=bathrooms, built_up_area=built_up_area, unit=unit, transaction_type=transaction_type, property_floor=property_floor, ownership=ownership, total_floors=total_floors, availability=availability, description=description, carpet_area=carpet_area)
             print(listing)
             listing.save()
-            return JsonResponse({'error': False, 'message': 'Uploaded Successfully'})
+            return JsonResponse({'error': False, 'message': 'Property added Successfully'})
         else:        
             return JsonResponse({'error': True, 'errors': form.errors})
         
