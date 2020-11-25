@@ -283,11 +283,12 @@ html {
   border-radius: 0px;
 }
 .blockbackground {
-		    background-color: rgb(253, 0, 0);
-		    /* text-transform: uppercase; */
-		    padding-left: 10px;
-		    padding-top: 5px;
-		    padding-bottom: 5px;
-		    padding-right: 0px;
-		    margin-bottom: 10px;
-		}
+  background-color: rgba(41, 41, 41, 1);
+  color: white;
+  width: 95%;
+  height: auto;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+} 

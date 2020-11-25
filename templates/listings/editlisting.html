@@ -7,8 +7,8 @@
         <h3 id="aboutheading"><span style="color: #ffffff;">Edit</span> Property</h3><br />   
         <form method="POST" action="" enctype="multipart/form-data">
             {% csrf_token %}
-            {{form.as_p}}
-        
+            
+        {{form.as_p}}
         <input class="btn btn-success" type="submit" name="Update Information">
         </form>
     </div>
