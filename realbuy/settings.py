@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'shortlist',
     'django.contrib.humanize',
+    'quicksearch',
 ]
 
 MIDDLEWARE = [
