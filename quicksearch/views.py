@@ -10,6 +10,6 @@ class InfoListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["qs_json"] = json.dumps(list(Listing.objects.values('title','city','location')))
+        context["qs_json"] = json.dumps(list(Listing.objects.values('title','city','location','id')))
         return context
     
