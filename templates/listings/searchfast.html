@@ -27,6 +27,17 @@
 			color: white;
 			font-family: Antipasto;
         }
+        #car { 
+            background: transparent;
+            
+        }
+        #carb {
+            height: 20px;
+            background: #000000;
+            opacity: 0.6;
+            color: #2fb56e;
+            
+        }
     </style>
   </head>
   <body>
@@ -98,10 +109,18 @@
         console.log(filteredArr);
         if (filteredArr.length > 0){
             filteredArr.map(info=>{
-                box.innerHTML += `<span>${info['title']}</span><br>`
+                box.innerHTML += `<div class="card" id="car">
+                <div class="card-body border border-secondary" id="carb">
+                    <span id="spalign"><b>${info['title']}</b></span>
+                </div>
+                </div>`
             })
         } else {
-            box.innerHTML = "<b>No results found...</b>"
+            box.innerHTML = `<div class="card" id="car">
+                <div class="card-body border border-danger" id="carb">
+                    <span id="spalign"><b>No results Found</b></span>
+                </div>
+                </div>`
         }
     })
 
