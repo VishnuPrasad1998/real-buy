@@ -22,8 +22,9 @@
 			background: url({% static 'img/Bg.png' %});
 			background-size: cover;
 			position: absolute;
+            background-repeat: no-repeat;
 			width: 100%;
-			height: 100%;
+			height: auto;
 			color: white;
 			font-family: Antipasto;
         }
@@ -32,11 +33,15 @@
             
         }
         #carb {
-            height: 20px;
+            min-height: 1rem;
             background: #000000;
             opacity: 0.6;
             color: #2fb56e;
             
+        }
+        #spalign {
+            padding-top: auto;
+            padding-bottom: auto;
         }
     </style>
   </head>
