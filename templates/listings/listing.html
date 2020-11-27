@@ -6,7 +6,7 @@
   {% if messages %}
       {% for message in messages %}
         {% if "error" in message.tags %}
-         <div id="mgalert" class="container">
+         <div id="msgalert" class="container">
             <div class="alert alert-danger alert-dismissible text-center" role="alert">
               <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button>
                 {{message}}

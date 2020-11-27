@@ -1,16 +1,6 @@
-// setTimeout(function() {
-//   $('#mgalert').fadeOut('slow');
-// }, 3000);
-
-$('img.lazy').Lazy({
-  // your configuration goes here
-  scrollDirection: 'vertical',
-  effect: 'fadeIn',
-  visibleOnly: true,
-  onError: function(element) {
-      console.log('error loading ' + element.data('src'));
-  }
-});
+setTimeout(function() {
+  $('#msgalert').fadeOut('slow');
+}, 3000);
 
 function initMap() {
   // The location of Uluru

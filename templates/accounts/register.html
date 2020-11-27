@@ -141,11 +141,13 @@
                 <input type="submit" value="Register" class="btn btn-success btn-block" style="border-radius: 0px;">
               </form>
                 </div>
-                
+				
+				<div id="msgalert" class="container">
                 {% for message in messages %}
 					<p id="messages">{{message}}</p>
 				{% endfor %}
-                
+				</div>
+
 				<div class="mt-4">
 					<div class="d-flex justify-content-center links">
 						Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
@@ -160,6 +162,10 @@
 		 */
 
 		//Query All input fields
+		setTimeout(function() {
+		$('#msgalert').fadeOut('slow');
+		}, 3000);
+
 		var form_fields = document.getElementsByTagName('input')
 		form_fields[1].placeholder='Firstname..';
 		form_fields[2].placeholder='Lastname..';
