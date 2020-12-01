@@ -36,7 +36,7 @@ def Visualize(request):
 	plt.xlabel('Listings')
 	plt.ylabel('Shortlisted Count')
 
-	plt.savefig('realbuy/static/img/List_img.png')
+	plt.savefig('static/img/List_img.png')
 
 	
 	return render(request, 'visualization/visual.html')
