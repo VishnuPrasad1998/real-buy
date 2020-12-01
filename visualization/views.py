@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import pandas as pd
 from matplotlib import pyplot as plt
 from django.contrib.auth.decorators import login_required
@@ -6,6 +6,7 @@ from accounts.decorators import allowed_users
 from django.contrib.auth.models import Group 
 from django_pandas.io import read_frame
 from shortlist.models import Shortlist
+import plotly.graph_objects as go
 # Create your views here.
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
@@ -13,9 +14,7 @@ def Visualize(request):
     data = Shortlist.objects.all()
 
     df = read_frame(data)
-
-    print(df)
-
+    
     df = df.loc[:,['listing']]
     df.dropna( inplace=True)
 
@@ -33,13 +32,13 @@ def Visualize(request):
 
     count = df['Count'].head(len(df))
 
-    fig = plt.figure(figsize =(7, 5))
-
-    plt.bar(listing[0:10], count[0:10], color='#2ca665') 
-    plt.xlabel('Listing')
-    plt.ylabel('Shortlisted Count')
-
-    plt.savefig('static/img/List_img.png')
+    fig = go.Figure([go.Bar(x=listing[0:10], y=count[0:10], marker_color='#2fb56e')])
+    fig.update_layout(
+    title="Real Buy Stats 2020",
+    xaxis_title="Properties",
+    yaxis_title="Number of shortlists")
 
     
-    return render(request, 'visualization/visual.html')
+    graph = fig.to_html(full_html=False, default_height=500, default_width=700)
+    context = {'graph': graph}
+    return render(request, 'visualization/visual.html', context)

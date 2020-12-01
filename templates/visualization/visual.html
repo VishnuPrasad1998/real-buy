@@ -8,8 +8,22 @@
         @font-face {
 		font-family: Antipasto;
 		src: url('{% static 'webfonts/Antipasto_regular.otf' %}');
-		}
-        .center {
+        }
+
+        body,
+		html {
+			margin: 0;
+			padding: 0;
+			background: url({% static 'img/Bg.png' %});
+			background-size: cover;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			color: white;
+			font-family: Antipasto;
+        }
+        
+        #centerpart {
             display: block;
             margin-top: auto;
             margin-left: auto;
@@ -24,6 +38,13 @@
 </head>
 <body style="background-color: black; font-family: Antipasto;">
     <h2 id="aboutheading"><span style="color: #ffffff;">Realbuy</span> Analytics</h2><br /> 
-  <img src="{% static 'img/List_img.png' %}" class="center"> 
+    <div class="container" id="centerpart">
+        {% if graph %}
+        {{ graph|safe }}
+        {% else %}
+        <p>No graph was provided.</p>
+        {% endif %}
+    </div>
+    
 </body>
 </html>

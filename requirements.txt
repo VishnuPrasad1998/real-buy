@@ -24,3 +24,4 @@ django-import-export
 pandas
 matplotlib
 django-pandas
+plotly
