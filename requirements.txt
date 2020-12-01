@@ -20,3 +20,6 @@ django-allauth
 django-cors-headers
 django-humanize
 django-resized
+django-import-export
+pandas
+matplotlib

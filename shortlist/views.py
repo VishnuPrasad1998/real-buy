@@ -3,6 +3,8 @@ from django.contrib import messages
 from .models import Shortlist
 from django.core.mail import send_mail
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
+from .resources import ShortlistResource
 
 @login_required(login_url='login')
 def shortlist(request):
@@ -43,4 +45,9 @@ def shortlist(request):
        return redirect('/listings/'+listing_id)
        
 
-       
+def export(request):
+    shortlist_resource = ShortlistResource()
+    dataset = shortlist_resource.export()
+    response = HttpResponse(dataset.csv, content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="shortlisted.csv"'
+    return response

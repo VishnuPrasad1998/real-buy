@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Data Visualized</title>
+    <style>
+        @font-face {
+		font-family: Antipasto;
+		src: url('{% static 'webfonts/Antipasto_regular.otf' %}');
+		}
+        .center {
+            display: block;
+            margin-top: auto;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        #aboutheading {
+            color: #2ca665;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color: black; font-family: Antipasto;">
+    <h2 id="aboutheading"><span style="color: #ffffff;">Realbuy</span> Analytics</h2><br /> 
+  <img src="{% static 'img/List_img.png' %}" class="center"> 
+</body>
+</html>

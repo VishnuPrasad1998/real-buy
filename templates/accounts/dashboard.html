@@ -42,7 +42,7 @@
      {% for l in listing_details %}
       <div class="row">
       <div class="col-md-6">
-        <div class="cardfeatured" style="width: 50rem; height: 12rem;">
+        <div class="cardfeatured" style="width: 45rem; height: 12rem; margin-left: 50px; margin-right: auto;">
           <div class="row">
             <div class="col-md-4"><a href="{% url 'listing' l.id %}"><img src="{{l.photo_main.url}}" height="120px" width="190px" class="lazy"></a></div>
             <div class="col-md-6">

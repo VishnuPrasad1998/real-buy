@@ -31,6 +31,7 @@ urlpatterns = [
     path('listings/', include('listings.urls')),
     path('contactus/', include('contactus.urls')),
     path('accounts/', include('accounts.urls')),
+    path('visualization/', include('visualization.urls')),
     path('quicksearch/', InfoListView.as_view(), name='quicksearch'),
     path('shortlist/', include('shortlist.urls')),
     path('accounts/social/', include('allauth.urls')),

@@ -14,7 +14,7 @@
                 <div class="card card-body">
         
         
-                  <p><img src="{% static 'img/alert.png' %}" width="20px" height="20px">&nbsp;&nbsp;&nbsp;Are you sure you want to delete this item? "{{item}}"?</p>
+                  <p><img src="{% static 'img/alert.png' %}" width="20px" height="20px">&nbsp;&nbsp;&nbsp;Are you sure you want to delete this item: "{{item}}"?</p>
       
                   <form action="{% url 'deletelisting' item.id  %}" method="POST">
                       

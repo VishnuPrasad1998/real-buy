@@ -4,9 +4,12 @@ from listings.models import Listing
 from listings.choices import price_choices, bedroom_choices
 from django.core.paginator import EmptyPage, Paginator, PageNotAnInteger
 from shortlist.models import Shortlist
+from django.contrib.auth.models import User
 # Create your views here.
 def index(request):
-    shortlisted = Shortlist.objects.all()
+    user = request.user
+    shortlisted = Shortlist.objects.filter(user_id=user.id).values_list('listing_id', flat=True)
+    
     featured_listings = Listing.objects.raw('SELECT * FROM listings_listing ORDER BY price DESC')
     recent_listings = Listing.objects.raw('SELECT * FROM listings_listing ORDER BY posting_date DESC LIMIT 9')
     paginator = Paginator(featured_listings, 5)

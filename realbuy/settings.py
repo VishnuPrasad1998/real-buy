@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'shortlist',
     'django.contrib.humanize',
     'quicksearch',
+    'import_export',
+    'visualization',
 ]
 
 MIDDLEWARE = [
@@ -220,3 +222,5 @@ DJANGORESIZED_DEFAULT_SIZE = [1920, 1080]
 DJANGORESIZED_DEFAULT_QUALITY = 75
 DJANGORESIZED_DEFAULT_KEEP_META = True
 DJANGORESIZED_DEFAULT_NORMALIZE_ROTATION = True
+
+IMPORT_EXPORT_USE_TRANSACTIONS = True
