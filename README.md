@@ -18,4 +18,5 @@ Real buy is a real estate management web app.
 2. Update settings.py with your database credentials
 3. Run `python manange.py makemigrations` and then `python manage.py migrate` for applying those migrations.
 4. Run `python manage.py runserver`
+5. To access admin pannel run `python manage.py createsuperuser` and set a username, password.
 
