@@ -192,6 +192,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'realbuy/static'),)
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
+#AWS S3 storage details
 AWS_ACCESS_KEY_ID = 'AKIAVJB47BNVETDCWWP6'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'realbuy-bucket'
@@ -200,6 +201,7 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
+#Email Credentials
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -218,6 +220,7 @@ LOGIN_REDIRECT_URL = 'dashboard'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+#Django Resize settings
 DJANGORESIZED_DEFAULT_SIZE = [1920, 1080]
 DJANGORESIZED_DEFAULT_QUALITY = 75
 DJANGORESIZED_DEFAULT_KEEP_META = True

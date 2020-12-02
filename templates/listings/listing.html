@@ -83,7 +83,7 @@
             {% if user.is_authenticated %}
             {% if shortlisted %}
             {% for sh in shortlisted %}
-              {% if sh.listing_id == item.id %}
+              {% if sh.listing_id == item.id and request.user.id == sh.user_id %}
               <img src="{% static 'img/Fav_select.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;SHORTLISTED</small></a>
               {% else %}
               <img src="{% static 'img/Fav_white.png' %}" alt="" height="18px" width="18px"><small>&nbsp;&nbsp;SHORTLIST</small></a>

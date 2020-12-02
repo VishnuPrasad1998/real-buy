@@ -7,7 +7,8 @@ from django.contrib.auth.models import Group
 from django_pandas.io import read_frame
 from shortlist.models import Shortlist
 import plotly.graph_objects as go
-# Create your views here.
+
+#View for visualizing the shortlist data
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
 def Visualize(request):

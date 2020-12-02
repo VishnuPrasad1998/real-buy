@@ -9,6 +9,7 @@ from listings.models import Listing
 from django.contrib.auth.decorators import login_required
 import re
 
+# User registration
 def registerPage(request):
     form = CreateUserForm(request.POST)
     if request.method == 'POST':
@@ -19,9 +20,9 @@ def registerPage(request):
         password = request.POST['password1']
         password2 = request.POST['password2'] 
 
-        #Check if password match
+        #Check if password's match
         if password == password2:
-      # Check username
+            #Check username
             if User.objects.filter(username=username).exists():
                 messages.error(request, 'That username is taken')
             else:
@@ -42,6 +43,7 @@ def registerPage(request):
         form = CreateUserForm()
     return render(request, 'accounts/register.html',{'form': form})
 
+# User login
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect('dashboard')
@@ -51,7 +53,7 @@ def loginPage(request):
                 email = request.POST.get('email')
                 password = request.POST.get('password')
                 print(email)
-                #To check whether user input is Mailid or Username
+                #To check whether user input is Mail id or Username
                 if(re.search("@gmail.com$", email)):
                     user_list = User.objects.filter(email=email)
                     print(user_list)
@@ -68,11 +70,13 @@ def loginPage(request):
         context = {}
         return render(request, 'accounts/login.html', context)
 
+# User logout
 def logoutUser(request):
     logout(request)
     messages.info(request, "Logged out successfully...")
     return redirect('login')
 
+#User dashboard
 @login_required(login_url='login')
 def dashboard(request):
     user = request.user
@@ -83,6 +87,7 @@ def dashboard(request):
     }
     return render(request, 'accounts/dashboard.html', context)
 
+# Edit Profile
 @login_required(login_url='login')
 def profileupdate(request):
     userprofile = request.user.userprofile

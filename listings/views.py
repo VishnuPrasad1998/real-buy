@@ -11,7 +11,9 @@ from django.contrib.auth.decorators import login_required
 from shortlist.models import Shortlist
 # Create your views here.
 
+#Return single listing
 def listing(request, listing_id):
+    #To retreive shortlisted property
     shortlisted = Shortlist.objects.raw('SELECT * FROM shortlist_shortlist WHERE listing_id = %d' % listing_id)
     listing = Listing.objects.raw('SELECT * FROM listings_listing WHERE id = %d' % listing_id)
     print(shortlisted)
@@ -21,6 +23,7 @@ def listing(request, listing_id):
     }
     return render(request, 'listings/listing.html', context)
 
+# To search properties
 @csrf_exempt
 def search(request):
     queryset_list = Listing.objects.order_by('-price')
@@ -67,6 +70,7 @@ def search(request):
     }
     return render(request, 'listings/search.html', context)
 
+#To add property
 @login_required(login_url='login')
 def addlisting(request):
     user = request.user
@@ -103,6 +107,7 @@ def addlisting(request):
         # return redirect('dashboard')
     return render(request, "listings/addlisting.html", {"form": form})
 
+# To edit property
 @login_required(login_url='login')
 def editListing(request, pk):
     listing = Listing.objects.get(id=int(pk))
@@ -116,6 +121,7 @@ def editListing(request, pk):
     context = {'form':form}
     return render(request, "listings/editlisting.html", context)
 
+# To Delete a property
 @login_required(login_url='login')    
 def deleteListing(request, pk):
     listing = Listing.objects.get(id=int(pk))
@@ -126,6 +132,7 @@ def deleteListing(request, pk):
     context = {'item':listing}
     return render(request, 'listings/delete.html', context)
 
+# Mark the location of a single listing on a map
 def mapshow(request, pk):
     listing = Listing.objects.raw('SELECT * FROM listings_listing WHERE id = %d' % int(pk))
     print(listing)

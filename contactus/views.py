@@ -5,6 +5,7 @@ from contactus.models import Contactus
 from .forms import ContactForm
 from django.contrib import messages
 
+#Contact us views
 def contactus(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)

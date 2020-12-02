@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from .resources import ShortlistResource
 
+# To shortlist a property
 @login_required(login_url='login')
 def shortlist(request):
     if request.method == 'POST':
@@ -44,7 +45,7 @@ def shortlist(request):
        messages.success(request, 'Successfully shortlisted, Realtor will contact you soon...')
        return redirect('/listings/'+listing_id)
        
-
+# To export shortlisted data as csv
 def export(request):
     shortlist_resource = ShortlistResource()
     dataset = shortlist_resource.export()
