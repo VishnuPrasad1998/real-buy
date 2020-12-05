@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from quicksearch.views import InfoListView
+from quicksearch.views import SearchListView
 
 urlpatterns = [
     #URL Patterns for rest api's
@@ -32,7 +32,7 @@ urlpatterns = [
     path('contactus/', include('contactus.urls')),
     path('accounts/', include('accounts.urls')),
     path('visualization/', include('visualization.urls')),
-    path('quicksearch/', InfoListView.as_view(), name='quicksearch'),
+    path('quicksearch/', SearchListView.as_view(), name='quicksearch'),
     path('shortlist/', include('shortlist.urls')),
     path('accounts/social/', include('allauth.urls')),
     path('admin/', admin.site.urls),

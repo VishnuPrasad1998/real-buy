@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 import re
 
 # User registration
-def registerPage(request):
+def registerpage(request):
     form = CreateUserForm(request.POST)
     if request.method == 'POST':
         first_name = request.POST['first_name']
@@ -19,17 +19,17 @@ def registerPage(request):
         email = request.POST['email']
         password = request.POST['password1']
         password2 = request.POST['password2'] 
-
-        #Check if password's match
+        # Check if password's match
         if password == password2:
-            #Check username
+            # Check username
             if User.objects.filter(username=username).exists():
                 messages.error(request, 'That username is taken')
             else:
                 if User.objects.filter(email=email).exists():
                     messages.error(request, 'That email is being used')
                 else:
-                    user = User.objects.create_user(first_name=first_name, username=username, password=password, email=email, last_name=last_name)
+                    user = User.objects.create_user(first_name=first_name, username=username, password=password, 
+                    email=email, last_name=last_name)
                     user.save()
                     UserProfile.objects.create(
                         user=user,
@@ -44,7 +44,7 @@ def registerPage(request):
     return render(request, 'accounts/register.html',{'form': form})
 
 # User login
-def loginPage(request):
+def loginpage(request):
     if request.user.is_authenticated:
         return redirect('dashboard')
     else:
@@ -53,7 +53,7 @@ def loginPage(request):
                 email = request.POST.get('email')
                 password = request.POST.get('password')
                 print(email)
-                #To check whether user input is Mail id or Username
+                # To check whether user input is Mail id or Username
                 if(re.search("@gmail.com$", email)):
                     user_list = User.objects.filter(email=email)
                     print(user_list)
@@ -71,12 +71,12 @@ def loginPage(request):
         return render(request, 'accounts/login.html', context)
 
 # User logout
-def logoutUser(request):
+def logoutuser(request):
     logout(request)
     messages.info(request, "Logged out successfully...")
     return redirect('login')
 
-#User dashboard
+# User dashboard
 @login_required(login_url='login')
 def dashboard(request):
     user = request.user
@@ -99,5 +99,5 @@ def profileupdate(request):
             form.save()
             return redirect('dashboard')
 
-    context = {'form':form}
+    context = {'form' : form}
     return render(request, 'accounts/profile.html', context)

@@ -65,8 +65,8 @@ def search(request):
     context = {
       'listings':  paged_listings,
       'bedroom_choices': bedroom_choices,
-      'price_choices': price_choices
-    #   'values': request.GET
+      'price_choices': price_choices,
+       'values': request.GET
     }
     return render(request, 'listings/search.html', context)
 
@@ -109,7 +109,7 @@ def addlisting(request):
 
 # To edit property
 @login_required(login_url='login')
-def editListing(request, pk):
+def editlisting(request, pk):
     listing = Listing.objects.get(id=int(pk))
     print(listing)
     form = ListingEditModelForm(instance=listing)
@@ -123,7 +123,7 @@ def editListing(request, pk):
 
 # To Delete a property
 @login_required(login_url='login')    
-def deleteListing(request, pk):
+def deletelisting(request, pk):
     listing = Listing.objects.get(id=int(pk))
     print(listing)
     if request.method == "POST":

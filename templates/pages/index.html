@@ -160,11 +160,11 @@
               <div class="card-img-overlay">
                 {% if listing.action_type == "ONSALE" %}
                 <h4>
-                  <span class="badge badge-success text-white" style="background-color: #FF8C00;">{{listing.action_type}}</span>
+                  <span class="badge badge-success text-white" style="background-color: #FF8C00; font-size: small;">ON SALE</span>
                 </h4>
                 {% else %}
                 <h4>
-                  <span class="badge badge-primary text-white" style="background-color: #2fb56e;">{{listing.action_type}}</span>
+                  <span class="badge badge-primary text-white" style="background-color: #2fb56e;  font-size: small;">ON RENT</span>
                 </h4>
                 {% endif %}
               </div>
@@ -229,11 +229,11 @@
                   <div class="card-img-overlay">
                     {% if listing.action_type == "ONSALE" %}
                     <h4>
-                      <span class="badge badge-success text-white" id="recentbadge" style="background-color: #FF8C00;">{{listing.action_type}}</span>
+                      <span class="badge badge-success text-white" id="recentbadge" style="background-color: #FF8C00;  font-size: small;">ON SALE</span>
                     </h4>
                     {% else %}
                     <h4>
-                      <span class="badge badge-primary text-white" id="recentbadge" style="background-color: #2fb56e;">{{listing.action_type}}</span>
+                      <span class="badge badge-primary text-white" id="recentbadge" style="background-color: #2fb56e; font-size: small;">ON RENT</span>
                     </h4>
                     {% endif %}
                   

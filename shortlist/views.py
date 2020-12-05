@@ -37,7 +37,8 @@ def shortlist(request):
 
        send_mail(
            'Property Listing Inquiry',
-           'There is been an inquiry for ' + listing + ' by '+ name +' and would love to visit the property tomorrow ' + slot + '. You can contact him/her in '+ 'Email id: ' +client_email + ' or ' + 'Phone number: ' + client_phone,
+           'There is been an inquiry for ' + listing + ' by '+ name +' and would love to visit the property tomorrow ' + slot
+            + '. You can contact him/her in '+ 'Email id: ' +client_email + ' or ' + 'Phone number: ' + client_phone,
            'mini@gmail.com',
             [realtor_email],
            fail_silently=False

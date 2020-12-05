@@ -5,7 +5,7 @@ import json
 # Create your views here.
 
 #Views for text search without MySQL
-class InfoListView(ListView):
+class SearchListView(ListView):
     model = Listing
     template_name = 'listings/searchfast.html'
 

@@ -11,9 +11,10 @@ import plotly.graph_objects as go
 #View for visualizing the shortlist data
 @login_required(login_url='login')
 @allowed_users(allowed_roles=['admin'])
-def Visualize(request):
+def visualize(request):
     data = Shortlist.objects.all()
 
+    # To do enough data cleaning using pandas
     df = read_frame(data)
     
     df = df.loc[:,['listing']]
@@ -33,13 +34,14 @@ def Visualize(request):
 
     count = df['Count'].head(len(df))
 
+    # To plot this as  a barchart using plotly
     fig = go.Figure([go.Bar(x=listing[0:10], y=count[0:10], marker_color='#2fb56e')])
+
     fig.update_layout(
     title="Real Buy Stats 2020",
     xaxis_title="Properties",
     yaxis_title="Number of shortlists")
 
-    
     graph = fig.to_html(full_html=False, default_height=500, default_width=700)
     context = {'graph': graph}
     return render(request, 'visualization/visual.html', context)
