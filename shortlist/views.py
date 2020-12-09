@@ -35,6 +35,7 @@ def shortlist(request):
 
        shortlist.save()
 
+       # Sending notification mail to the realtor upon successful shortlisting
        send_mail(
            'Property Listing Inquiry',
            'There is been an inquiry for ' + listing + ' by '+ name +' and would love to visit the property tomorrow ' + slot
@@ -46,7 +47,7 @@ def shortlist(request):
        messages.success(request, 'Successfully shortlisted, Realtor will contact you soon...')
        return redirect('/listings/'+listing_id)
        
-# To export shortlisted data as csv
+# To export shortlisted data as csv from django admin
 def export(request):
     shortlist_resource = ShortlistResource()
     dataset = shortlist_resource.export()

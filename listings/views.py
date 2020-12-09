@@ -23,7 +23,8 @@ def listing(request, listing_id):
     }
     return render(request, 'listings/listing.html', context)
 
-# To search properties
+
+#Search based on multiple parameters like city, price and bedrooms. Paginated and rendered on the template.
 @csrf_exempt
 def search(request):
     queryset_list = Listing.objects.order_by('-price')
@@ -66,7 +67,7 @@ def search(request):
       'listings':  paged_listings,
       'bedroom_choices': bedroom_choices,
       'price_choices': price_choices,
-       'values': request.GET
+       'values': request.GET #To preserve form data
     }
     return render(request, 'listings/search.html', context)
 
@@ -97,8 +98,12 @@ def addlisting(request):
             total_floors = request.POST['total_floors']
             availability = request.POST['availability']
             description = request.POST['description']
-            listing = Listing(action_type=action_type, title=title, user=user, property_type=property_type, photo_main=photo_main, city=city, address=address, location=location, price=price, bedrooms=bedrooms, bathrooms=bathrooms, built_up_area=built_up_area, unit=unit, transaction_type=transaction_type, property_floor=property_floor, ownership=ownership, total_floors=total_floors, availability=availability, description=description, carpet_area=carpet_area)
-            print(listing)
+
+            listing = Listing(action_type=action_type, title=title, user=user, property_type=property_type, photo_main=photo_main, 
+            city=city, address=address, location=location, price=price, bedrooms=bedrooms, bathrooms=bathrooms, built_up_area=built_up_area,
+            unit=unit, transaction_type=transaction_type, property_floor=property_floor, ownership=ownership, total_floors=total_floors,
+            availability=availability, description=description, carpet_area=carpet_area)
+            
             listing.save()
             return JsonResponse({'error': False, 'message': 'Property added Successfully'})
         else:        
