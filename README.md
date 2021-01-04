@@ -4,7 +4,7 @@ Real buy is a real estate management web app.
 1. Property CRUD
 2. Authentication( Custom and Social)
 3. User Profile Create and Update
-4.Contactus
+4. Contactus
 5. Maps Integration
 6. Multi Parameter Property search
 7. Shortlisting and Notification
