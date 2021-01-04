@@ -15,7 +15,7 @@ Real buy is a real estate management web app. Follows MVT architecture.
 
 **To run the application:**
 1. Clone the project using git clone command
-2. Update settings.py with your database credentials
+2. Update settings.py with your credentials(AWS details, DB Credentials, Email Credentials...)
 3. Run `python manange.py makemigrations` and then `python manage.py migrate` for applying those migrations.
 4. Run `python manage.py runserver`
 5. To access admin pannel run `python manage.py createsuperuser` and set a username, password.
