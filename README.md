@@ -20,3 +20,5 @@ Real buy is a real estate management web app.
 4. Run `python manage.py runserver`
 5. To access admin pannel run `python manage.py createsuperuser` and set a username, password.
 
+**API docs:**
+https://documenter.getpostman.com/view/11431269/TVejg9n7
