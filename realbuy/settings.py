@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'hyiq$7ysk#+5#h45(ixwe1(tu@$*3ye#5c4@4h=gwb##3%&3y('
+SECRET_KEY = '' #Enter Secret key  inside ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'django_filters',
     'contactus',
     'listings',
-    # 'realtors',
     'rest_framework',
     'storages',
     'accounts',
@@ -98,9 +97,9 @@ WSGI_APPLICATION = 'realbuy.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'realbuydb',
-        'USER': 'vishnu',
-        'PASSWORD': 'abcd1234',
+        'NAME': '', #Enter name of database inside ''
+        'USER': '', #Enter name of User inside ''
+        'PASSWORD': '', #Enter password inside ''
         'HOST': 'localhost'
     }
 }
@@ -193,9 +192,9 @@ MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 #AWS S3 storage details
-AWS_ACCESS_KEY_ID = 'AKIAVJB47BNVETDCWWP6'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'realbuy-bucket'
+AWS_ACCESS_KEY_ID = '' #Enter AWS accesskey inside ''
+AWS_SECRET_ACCESS_KEY = '' #Enter AWS secretkey inside ''
+AWS_STORAGE_BUCKET_NAME = '' #Enter AWS storage bucket name inside ''
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
@@ -206,8 +205,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'realbuy2020@gmail.com'
-EMAIL_HOST_PASSWORD = 'realbuy@vishnu'
+EMAIL_HOST_USER = '' #Enter Email host address inside ''
+EMAIL_HOST_PASSWORD = '' #Enter Email password inside ''
 
 AUTHENTICATION_BACKENDS = {
     'django.contrib.auth.backends.ModelBackend',
